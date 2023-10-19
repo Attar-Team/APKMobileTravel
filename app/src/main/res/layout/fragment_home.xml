@@ -37,10 +37,11 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginLeft="25dp"
                         android:layout_marginBottom="8dp"
-                        android:elevation="10dp">
+                        android:elevation="10dp"
+                        app:cardCornerRadius="10dp">
                         <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
@@ -52,10 +53,11 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginLeft="25dp"
                         android:layout_marginBottom="8dp"
-                        android:elevation="10dp">
+                        android:elevation="10dp"
+                        app:cardCornerRadius="10dp">
                         <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
@@ -67,10 +69,11 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginLeft="25dp"
                         android:elevation="10dp"
-                        android:layout_marginBottom="8dp">
+                        android:layout_marginBottom="8dp"
+                        app:cardCornerRadius="10dp">
                         <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
@@ -82,10 +85,11 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginRight="25dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="16dp"
-                        android:elevation="10dp">
+                        android:layout_marginLeft="25dp"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="10dp">
                         <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
@@ -103,8 +107,8 @@
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:text="Umroh"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginLeft="25dp"
                         android:gravity="center"
                         android:fontFamily="@font/poppingbold"
                         android:textColor="@color/black"
@@ -113,8 +117,8 @@
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:text="Haji"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
                         android:gravity="center"
                         android:fontFamily="@font/poppingbold"
                         android:textColor="@color/black"
@@ -123,8 +127,8 @@
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:text="Tour"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
                         android:gravity="center"
                         android:fontFamily="@font/poppingbold"
                         android:textColor="@color/black"
@@ -133,8 +137,8 @@
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:text="Lainnya"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
                         android:gravity="center"
                         android:fontFamily="@font/poppingbold"
                         android:textColor="@color/black"
@@ -156,9 +160,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Paket Rahmatan"
-                        android:textStyle="bold"
                         android:textColor="@color/black"
-                        android:textSize="15dp"/>
+                        android:textSize="15dp"
+                        android:fontFamily="@font/poppingbold"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -171,9 +175,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Selengkapnya"
-                            android:textStyle="bold"
                             android:textColor="@color/soft_orange"
-                            android:textSize="12dp"/>
+                            android:textSize="12dp"
+                            android:fontFamily="@font/poppingbold"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -229,9 +233,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Gallery"
-                        android:textStyle="bold"
                         android:textColor="@color/black"
-                        android:textSize="15dp"/>
+                        android:textSize="15dp"
+                        android:fontFamily="@font/poppingbold"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -244,9 +248,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Selengkapnya"
-                            android:textStyle="bold"
                             android:textColor="@color/soft_orange"
-                            android:textSize="12dp"/>
+                            android:textSize="12dp"
+                            android:fontFamily="@font/poppingbold"/>
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
@@ -313,9 +317,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Artikel"
-                        android:textStyle="bold"
                         android:textColor="@color/black"
-                        android:textSize="15dp"/>
+                        android:textSize="15dp"
+                        android:fontFamily="@font/poppingbold"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -328,9 +332,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Selengkapnya"
-                            android:textStyle="bold"
                             android:textColor="@color/soft_orange"
-                            android:textSize="12dp"/>
+                            android:textSize="12dp"
+                            android:fontFamily="@font/poppingbold"/>
                     </LinearLayout>
                 </LinearLayout>
 
