@@ -116,7 +116,9 @@
                         android:layout_marginRight="25dp"
                         android:layout_marginBottom="8dp"
                         android:elevation="10dp"
-                        app:cardCornerRadius="10dp">
+                        app:cardCornerRadius="10dp"
+                        android:clickable="true"
+                        android:foreground="@drawable/cardview_selector">
 
                         <ImageView
                             android:layout_width="40dp"
@@ -134,7 +136,9 @@
                         android:layout_marginRight="25dp"
                         android:layout_marginBottom="8dp"
                         android:elevation="10dp"
-                        app:cardCornerRadius="10dp">
+                        app:cardCornerRadius="10dp"
+                        android:clickable="true"
+                        android:foreground="@drawable/cardview_selector">
 
                         <ImageView
                             android:layout_width="40dp"
@@ -152,7 +156,9 @@
                         android:layout_marginRight="25dp"
                         android:layout_marginBottom="8dp"
                         android:elevation="10dp"
-                        app:cardCornerRadius="10dp">
+                        app:cardCornerRadius="10dp"
+                        android:clickable="true"
+                        android:foreground="@drawable/cardview_selector">
 
                         <ImageView
                             android:layout_width="40dp"
@@ -170,7 +176,9 @@
                         android:layout_marginRight="25dp"
                         android:layout_marginBottom="8dp"
                         android:elevation="10dp"
-                        app:cardCornerRadius="10dp">
+                        app:cardCornerRadius="10dp"
+                        android:clickable="true"
+                        android:foreground="@drawable/cardview_selector">
 
                         <ImageView
                             android:layout_width="40dp"
