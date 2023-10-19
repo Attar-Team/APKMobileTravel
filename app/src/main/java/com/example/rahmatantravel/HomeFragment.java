@@ -2,13 +2,24 @@ package com.example.rahmatantravel;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.sql.Time;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +32,11 @@ public class HomeFragment extends Fragment {
     private CardView menuHaji;
     private CardView menuTour;
     private CardView menuLainnya;
+    private TextView hariIniTextView;
+    private TextView waktuSekarang;
+    private SimpleDateFormat sdf = new SimpleDateFormat("HH:mm z", Locale.getDefault());
+    private Handler timeHandler;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -68,11 +84,35 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        waktuSekarang = view.findViewById(R.id.waktuSekarang);
+
+        sdf.setTimeZone(TimeZone.getTimeZone("Asia/Jakarta"));
+
+        timeHandler = new Handler(Looper.getMainLooper()){
+            public void handleMessage(@NonNull Message msg){
+                super.handleMessage(msg);
+                updateWaktuSekarang();
+                timeHandler.sendEmptyMessageDelayed(0, 1000);
+            }
+        };
+        timeHandler.sendEmptyMessage(0);
+
+
         // Menginisialisasi CardView
         menuUmroh = view.findViewById(R.id.menuUmroh);
         menuHaji = view.findViewById(R.id.menuHaji);
         menuTour = view.findViewById(R.id.menuTour);
         menuLainnya = view.findViewById(R.id.menuLainnya);
+
+        hariIniTextView = view.findViewById(R.id.hariIni);
+
+        Date today = new Date();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, dd MMMM yyyy");
+        String formattedDate = dateFormat.format(today);
+
+        hariIniTextView.setText(formattedDate);
+
 
         // Menambahkan OnClickListener ke setiap CardView
         menuUmroh.setOnClickListener(new View.OnClickListener() {
@@ -112,5 +152,10 @@ public class HomeFragment extends Fragment {
         });
 
         return view;
+    }
+    private void updateWaktuSekarang() {
+        Date currentTime = new Date();
+        String formattedTime =sdf.format(currentTime);
+        waktuSekarang.setText(formattedTime);
     }
 }
