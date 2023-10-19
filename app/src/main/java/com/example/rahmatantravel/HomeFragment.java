@@ -1,7 +1,9 @@
 package com.example.rahmatantravel;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -14,6 +16,11 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+
+    private CardView menuUmroh;
+    private CardView menuHaji;
+    private CardView menuTour;
+    private CardView menuLainnya;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +66,51 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        // Menginisialisasi CardView
+        menuUmroh = view.findViewById(R.id.menuUmroh);
+        menuHaji = view.findViewById(R.id.menuHaji);
+        menuTour = view.findViewById(R.id.menuTour);
+        menuLainnya = view.findViewById(R.id.menuLainnya);
+
+        // Menambahkan OnClickListener ke setiap CardView
+        menuUmroh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Memulai UmrohActivity
+                Intent intent = new Intent(getActivity(), UmrohActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        menuHaji.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Memulai HajiActivity
+                Intent intent = new Intent(getActivity(), HajiActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        menuTour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Memulai TourActivity
+                Intent intent = new Intent(getActivity(), TourActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        menuLainnya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Memulai MenuLainnyaActivity (jika ada)
+                Intent intent = new Intent(getActivity(), MenuLainnya.class);
+                startActivity(intent);
+            }
+        });
+
+        return view;
     }
 }
