@@ -41,7 +41,7 @@
                     android:onClick="showProsesFragment"
                     android:clickable="true"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/poppingbold"/>
+                    android:fontFamily="@font/poppinssemibold"/>
 
                 <TextView
                     android:id="@+id/textBelumLunas"
@@ -52,7 +52,7 @@
                     android:clickable="true"
                     android:textColor="@color/black"
                     android:layout_marginHorizontal="85dp"
-                    android:fontFamily="@font/poppingbold"/>
+                    android:fontFamily="@font/poppinssemibold"/>
 
                 <TextView
                     android:id="@+id/textLunas"
@@ -62,7 +62,7 @@
                     android:onClick="showLunasFragment"
                     android:clickable="true"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/poppingbold"/>
+                    android:fontFamily="@font/poppinssemibold"/>
             </LinearLayout>
         </LinearLayout>
 
