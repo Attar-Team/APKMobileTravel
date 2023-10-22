@@ -76,6 +76,13 @@ public class PesananFragment extends Fragment {
         textBelumLunas.setOnClickListener(view -> onTextViewClick(textBelumLunas));
         textLunas.setOnClickListener(view -> onTextViewClick(textLunas));
 
+        // Saat PesananFragment dimuat, ganti fragment menjadi prosesPesanan secara otomatis
+        Fragment fragmentToReplace = new prosesPesanan();
+        replaceFragment(fragmentToReplace);
+
+        // Setel textProses menjadi oranye
+        textProses.setTextColor(getResources().getColor(R.color.orange));
+
         return rootView;
 
     }
