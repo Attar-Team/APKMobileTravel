@@ -6,3 +6,4 @@ idea/modules
 idea/workspace.xml
 gradle
 app/build
+*.properties
