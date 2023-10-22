@@ -1,8 +1,8 @@
 # Android SDK
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules
-/.idea/workspace.xml
-/.gradle
-/app/build
+local.properties
+.idea/caches
+.idea/libraries
+.idea/modules
+.idea/workspace.xml
+.gradle
+app/build
