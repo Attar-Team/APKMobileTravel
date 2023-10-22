@@ -1,17 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
     tools:context=".PesananFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Pesanan"
-        android:gravity="center"
-        android:textSize="40sp"
-        android:textColor="@color/soft_orange"/>
+        android:layout_height="wrap_content"
+        android:elevation="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pesanan"
+                android:textColor="@color/black"
+                android:paddingTop="16dp"
+                android:fontFamily="@font/poppingbold"
+                android:textSize="25dp"
+                android:layout_gravity="left"
+                android:paddingLeft="20dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+                <TextView
+                    android:id="@+id/textProses"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Proses"
+                    android:onClick="showProsesFragment"
+                    android:clickable="true"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppingbold"/>
 
-</FrameLayout>
+                <TextView
+                    android:id="@+id/textBelumLunas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Belum Lunas"
+                    android:onClick="showBelumLunasFragment"
+                    android:clickable="true"
+                    android:textColor="@color/black"
+                    android:layout_marginHorizontal="85dp"
+                    android:fontFamily="@font/poppingbold"/>
+
+                <TextView
+                    android:id="@+id/textLunas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lunas"
+                    android:onClick="showLunasFragment"
+                    android:clickable="true"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppingbold"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>
