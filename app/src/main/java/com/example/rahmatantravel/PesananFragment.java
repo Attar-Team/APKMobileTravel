@@ -3,10 +3,13 @@ package com.example.rahmatantravel;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +22,10 @@ public class PesananFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    TextView textProses;
+    TextView textBelumLunas;
+    TextView textLunas;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -59,6 +66,56 @@ public class PesananFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pesanan, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_pesanan, container, false);
+
+        textProses = rootView.findViewById(R.id.textProses);
+        textBelumLunas = rootView.findViewById(R.id.textBelumLunas);
+        textLunas = rootView.findViewById(R.id.textLunas);
+
+        textProses.setOnClickListener(view -> onTextViewClick(textProses));
+        textBelumLunas.setOnClickListener(view -> onTextViewClick(textBelumLunas));
+        textLunas.setOnClickListener(view -> onTextViewClick(textLunas));
+
+        return rootView;
+
+    }
+
+    private void onTextViewClick(TextView clickedTextView) {
+        // Reset warna teks ke hitam untuk semua TextView
+        textProses.setTextColor(getResources().getColor(R.color.black));
+        textBelumLunas.setTextColor(getResources().getColor(R.color.black));
+        textLunas.setTextColor(getResources().getColor(R.color.black));
+
+        // Setel warna teks menjadi oranye untuk TextView yang diklik
+        clickedTextView.setTextColor(getResources().getColor(R.color.orange));
+
+        // Selanjutnya, Anda dapat memanggil metode untuk mengganti fragment yang sesuai di sini.
+        // Contoh: replaceFragment(new ProsesFragment());
+        Fragment fragmentToReplace = null;
+        if (clickedTextView == textProses) {
+            fragmentToReplace = new prosesPesanan();
+        } else if (clickedTextView == textBelumLunas) {
+            fragmentToReplace = new belumLunasPesanan();
+        } else if (clickedTextView == textLunas) {
+            fragmentToReplace = new lunasPesanan();
+        }
+        if (fragmentToReplace != null) {
+            replaceFragment(fragmentToReplace);
+        }
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getChildFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        // Animasi masuk (fragment baru muncul)
+        fragmentTransaction.setCustomAnimations(R.anim.slide_in_pesanan, R.anim.fade_out); // Atur animasi sesuai dengan preferensi Anda
+
+        // Animasi keluar (fragment lama menghilang)
+        fragmentTransaction.setCustomAnimations(R.anim.slide_in_pesanan, R.anim.fade_out); // Atur animasi sesuai dengan preferensi Anda
+
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
