@@ -37,6 +37,10 @@ public class HomeFragment extends Fragment {
     private SimpleDateFormat sdf = new SimpleDateFormat("HH:mm z", Locale.getDefault());
     private Handler timeHandler;
 
+    private TextView selengkapnyaGallery;
+
+    private TextView selengkapnyaArtikel;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -104,6 +108,9 @@ public class HomeFragment extends Fragment {
         menuTour = view.findViewById(R.id.menuTour);
         menuLainnya = view.findViewById(R.id.menuLainnya);
 
+        selengkapnyaGallery = view.findViewById(R.id.selengkapnyaGallery);
+        selengkapnyaArtikel = view.findViewById(R.id.selengkapnyaArtikel);
+
         hariIniTextView = view.findViewById(R.id.hariIni);
 
         Date today = new Date();
@@ -147,6 +154,24 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 // Memulai MenuLainnyaActivity (jika ada)
                 Intent intent = new Intent(getActivity(), MenuLainnya.class);
+                startActivity(intent);
+            }
+        });
+
+        selengkapnyaGallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Memulai MenuLainnyaActivity (jika ada)
+                Intent intent = new Intent(getActivity(), GalleryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        selengkapnyaArtikel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Memulai MenuLainnyaActivity (jika ada)
+                Intent intent = new Intent(getActivity(), ArtikelActivity.class);
                 startActivity(intent);
             }
         });
