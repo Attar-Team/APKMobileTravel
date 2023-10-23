@@ -17,31 +17,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center_horizontal">
-            <TextView
-                android:layout_width="wrap_content"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pesanan"
-                android:textColor="@color/black"
-                android:paddingTop="16dp"
-                android:fontFamily="@font/poppingbold"
-                android:textSize="25dp"
-                android:layout_gravity="left"
-                android:paddingLeft="20dp"/>
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pesanan"
+                    android:textColor="@color/black"
+                    android:paddingTop="16dp"
+                    android:fontFamily="@font/poppingbold"
+                    android:textSize="25dp"
+                    android:layout_gravity="left"
+                    android:paddingLeft="20dp"/>
+            </LinearLayout>
+            <com.google.android.material.tabs.TabLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/tabLayout"
+                app:tabMode="fixed"
+                app:tabGravity="fill"
+                app:tabIndicatorGravity="stretch"
+                app:tabSelectedTextColor="@color/orange"
+                app:tabIndicatorAnimationMode="elastic"
+                app:tabIndicatorColor="@null"
+                app:tabTextColor="@color/black"
+                app:tabTextAppearance="@style/TabLayoutTextAppearance"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-    <com.google.android.material.tabs.TabLayout
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/tabLayout"
-        app:tabMode="fixed"
-        app:tabGravity="fill"
-        app:tabIndicatorGravity="stretch"
-        app:tabSelectedTextColor="@color/orange"
-        app:tabIndicatorAnimationMode="elastic"
-        app:tabIndicatorColor="@null"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
