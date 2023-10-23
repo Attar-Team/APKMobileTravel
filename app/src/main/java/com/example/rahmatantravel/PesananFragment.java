@@ -75,7 +75,6 @@ public class PesananFragment extends Fragment {
         ViewPager2 viewPager = rootView.findViewById(R.id.viewPager2);
 
         FragmentPesananAdapter adapter = new FragmentPesananAdapter(getChildFragmentManager(), getLifecycle());
-
         tabLayout.addTab(tabLayout.newTab().setText("Proses"));
         tabLayout.addTab(tabLayout.newTab().setText("Belum Lunas"));
         tabLayout.addTab(tabLayout.newTab().setText("Lunas"));
