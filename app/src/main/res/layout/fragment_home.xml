@@ -295,12 +295,16 @@
                                 android:layout_height="300dp"
                                 android:layout_marginTop="10dp"
                                 android:elevation="10dp"
-                                app:cardCornerRadius="10dp">
+                                app:cardCornerRadius="10dp"
+                                app:cardUseCompatPadding="true">
                                 <androidx.cardview.widget.CardView
                                     android:id="@+id/cardDalam1"
                                     android:layout_width="match_parent"
                                     android:layout_height="180dp"
-                                    app:cardCornerRadius="10dp">
+                                    app:cardCornerRadius="10dp"
+                                    android:elevation="10dp"
+                                    app:cardUseCompatPadding="true"
+                                    android:scaleType="centerCrop">
                                     <ImageView
                                         android:id="@+id/gambarpaket1"
                                         android:layout_width="match_parent"
@@ -362,8 +366,7 @@
                                         android:fontFamily="@font/poppingbold"
                                         android:textColor="@color/red"
                                         android:layout_marginLeft="4dp"
-                                        android:textSize="12dp"
-                                        android:layout_marginTop="5dp"/>
+                                        android:textSize="12dp"/>
                                 </LinearLayout>
                             </androidx.cardview.widget.CardView>
 
@@ -375,11 +378,14 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="10dp"
                             android:elevation="10dp"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardUseCompatPadding="true">
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="180dp"
-                                app:cardCornerRadius="10dp">
+                                app:cardCornerRadius="10dp"
+                                app:cardUseCompatPadding="true"
+                                android:scaleType="centerCrop">
                                 <ImageView
                                     android:id="@+id/gambarpaket2"
                                     android:layout_width="match_parent"
@@ -441,8 +447,7 @@
                                     android:fontFamily="@font/poppingbold"
                                     android:textColor="@color/red"
                                     android:layout_marginLeft="4dp"
-                                    android:textSize="12dp"
-                                    android:layout_marginTop="5dp"/>
+                                    android:textSize="12dp"/>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -452,11 +457,14 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="10dp"
                             android:elevation="10dp"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardUseCompatPadding="true">
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="180dp"
-                                app:cardCornerRadius="10dp">
+                                app:cardCornerRadius="10dp"
+                                app:cardUseCompatPadding="true"
+                                android:scaleType="centerCrop">
                                 <ImageView
                                     android:id="@+id/gambarpaket3"
                                     android:layout_width="match_parent"
@@ -518,8 +526,7 @@
                                     android:fontFamily="@font/poppingbold"
                                     android:textColor="@color/red"
                                     android:layout_marginLeft="4dp"
-                                    android:textSize="12dp"
-                                    android:layout_marginTop="5dp"/>
+                                    android:textSize="12dp"/>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
@@ -569,7 +576,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginRight="20dp">
 
                     <ViewFlipper
                         android:id="@+id/view_flipper"
@@ -585,7 +593,9 @@
                             android:layout_height="200dp"
                             android:layout_marginTop="10dp"
                             android:elevation="10dp"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardUseCompatPadding="true"
+                            android:scaleType="centerCrop">
 
                             <ImageView
                                 android:layout_width="match_parent"
@@ -598,7 +608,9 @@
                             android:layout_height="200dp"
                             android:layout_marginTop="10dp"
                             android:elevation="10dp"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardUseCompatPadding="true"
+                            android:scaleType="centerCrop">
 
                             <ImageView
                                 android:layout_width="match_parent"
@@ -611,12 +623,14 @@
                             android:layout_height="200dp"
                             android:layout_marginTop="10dp"
                             android:elevation="10dp"
-                            app:cardCornerRadius="10dp">
+                            app:cardCornerRadius="10dp"
+                            app:cardUseCompatPadding="true"
+                            android:scaleType="centerCrop">
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@drawable/galeri3" />
+                                android:src="@drawable/galeri3"/>
                         </androidx.cardview.widget.CardView>
                     </ViewFlipper>
                 </LinearLayout>
@@ -666,57 +680,68 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:elevation="10dp"
-                    app:cardCornerRadius="5dp">
+                    app:cardCornerRadius="15dp"
+                    android:layout_marginRight="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="130dp"
-                            android:layout_height="100dp"
-                            android:elevation="10dp"
-                            app:cardCornerRadius="5dp">
-
-                            <ImageView
-                                android:id="@+id/pictArtikel"
-                                android:layout_width="130dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/fotokabah" />
-                        </androidx.cardview.widget.CardView>
-
+                        android:padding="15dp"
+                        android:orientation="vertical">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:orientation="vertical">
-
+                            android:orientation="horizontal">
                             <TextView
-                                android:id="@+id/judulArtikel"
-                                android:layout_width="wrap_content"
+                                android:layout_width="240dp"
                                 android:layout_height="wrap_content"
-                                android:text="Ini Judul Artikel Ceritanya Bang"
+                                android:text="Jamaah Haji Indonesia baru saja tiba di Madinah"
                                 android:textColor="@color/black"
-                                android:textSize="17dp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/ygPostSiapa"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="by Admin"
-                                android:textSize="13dp" />
-
-                            <TextView
-                                android:id="@+id/tglArtikel"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="30 Sep 23"
-                                android:textSize="13dp" />
-
+                                android:fontFamily="@font/poppingbold"
+                                android:textSize="20dp"
+                                android:paddingLeft="5dp"
+                                android:layout_weight="1"
+                                android:layout_gravity="center_vertical"/>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:cardCornerRadius="10dp"
+                                android:elevation="4dp"
+                                app:cardUseCompatPadding="true">
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/fotokabah"
+                                    android:scaleType="centerCrop"/>
+                            </androidx.cardview.widget.CardView>
                         </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4 Jam Yang Lalu"
+                                android:textSize="12dp"
+                                android:fontFamily="@font/poppinssemibold"
+                                android:layout_weight="1"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="..."
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/poppingbold"/>
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="340dp"
+                            android:layout_height="wrap_content"
+                            android:text="Hari ini tanggal 13 Juni 2023 beberapa jamaah haji sudah tiba di tanah suci Madinah. Kedatangan jamaah haji di Indonesia disambut meriah"
+                            android:textColor="@color/black"
+                            android:textSize="12dp"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:ellipsize="end"
+                            android:maxLines="2"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
