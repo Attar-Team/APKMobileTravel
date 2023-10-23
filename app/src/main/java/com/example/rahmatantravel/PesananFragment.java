@@ -5,11 +5,14 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.google.android.material.tabs.TabLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,61 +71,82 @@ public class PesananFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_pesanan, container, false);
 
-        textProses = rootView.findViewById(R.id.textProses);
-        textBelumLunas = rootView.findViewById(R.id.textBelumLunas);
-        textLunas = rootView.findViewById(R.id.textLunas);
+        TabLayout tabLayout = rootView.findViewById(R.id.tabLayout);
+        ViewPager2 viewPager = rootView.findViewById(R.id.viewPager2);
 
-        textProses.setOnClickListener(view -> onTextViewClick(textProses));
-        textBelumLunas.setOnClickListener(view -> onTextViewClick(textBelumLunas));
-        textLunas.setOnClickListener(view -> onTextViewClick(textLunas));
+        FragmentPesananAdapter adapter = new FragmentPesananAdapter(getChildFragmentManager(), getLifecycle());
 
-        // Saat PesananFragment dimuat, ganti fragment menjadi prosesPesanan secara otomatis
-        Fragment fragmentToReplace = new prosesPesanan();
-        replaceFragment(fragmentToReplace);
+        tabLayout.addTab(tabLayout.newTab().setText("Proses"));
+        tabLayout.addTab(tabLayout.newTab().setText("Belum Lunas"));
+        tabLayout.addTab(tabLayout.newTab().setText("Lunas"));
 
-        // Setel textProses menjadi oranye
-        textProses.setTextColor(getResources().getColor(R.color.orange));
+        viewPager.setAdapter(adapter);
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                // Not implemented yet
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                // Not implemented yet
+            }
+        });
+
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                tabLayout.selectTab(tabLayout.getTabAt(position));
+            }
+        });
 
         return rootView;
 
     }
 
-    private void onTextViewClick(TextView clickedTextView) {
-        // Reset warna teks ke hitam untuk semua TextView
-        textProses.setTextColor(getResources().getColor(R.color.black));
-        textBelumLunas.setTextColor(getResources().getColor(R.color.black));
-        textLunas.setTextColor(getResources().getColor(R.color.black));
+//    private void onTextViewClick(TextView clickedTextView) {
+//        // Reset warna teks ke hitam untuk semua TextView
+//        textProses.setTextColor(getResources().getColor(R.color.black));
+//        textBelumLunas.setTextColor(getResources().getColor(R.color.black));
+//        textLunas.setTextColor(getResources().getColor(R.color.black));
+//
+//        // Setel warna teks menjadi oranye untuk TextView yang diklik
+//        clickedTextView.setTextColor(getResources().getColor(R.color.orange));
+//
+//        // Selanjutnya, Anda dapat memanggil metode untuk mengganti fragment yang sesuai di sini.
+//        // Contoh: replaceFragment(new ProsesFragment());
+//        Fragment fragmentToReplace = null;
+//        if (clickedTextView == textProses) {
+//            fragmentToReplace = new prosesPesanan();
+//        } else if (clickedTextView == textBelumLunas) {
+//            fragmentToReplace = new belumLunasPesanan();
+//        } else if (clickedTextView == textLunas) {
+//            fragmentToReplace = new lunasPesanan();
+//        }
+//        if (fragmentToReplace != null) {
+//            replaceFragment(fragmentToReplace);
+//        }
+//    }
 
-        // Setel warna teks menjadi oranye untuk TextView yang diklik
-        clickedTextView.setTextColor(getResources().getColor(R.color.orange));
-
-        // Selanjutnya, Anda dapat memanggil metode untuk mengganti fragment yang sesuai di sini.
-        // Contoh: replaceFragment(new ProsesFragment());
-        Fragment fragmentToReplace = null;
-        if (clickedTextView == textProses) {
-            fragmentToReplace = new prosesPesanan();
-        } else if (clickedTextView == textBelumLunas) {
-            fragmentToReplace = new belumLunasPesanan();
-        } else if (clickedTextView == textLunas) {
-            fragmentToReplace = new lunasPesanan();
-        }
-        if (fragmentToReplace != null) {
-            replaceFragment(fragmentToReplace);
-        }
-    }
-
-    private void replaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getChildFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-        // Animasi masuk (fragment baru muncul)
-        fragmentTransaction.setCustomAnimations(R.anim.slide_in_pesanan, R.anim.fade_out); // Atur animasi sesuai dengan preferensi Anda
-
-        // Animasi keluar (fragment lama menghilang)
-        fragmentTransaction.setCustomAnimations(R.anim.slide_in_pesanan, R.anim.fade_out); // Atur animasi sesuai dengan preferensi Anda
-
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
+//    private void replaceFragment(Fragment fragment) {
+//        FragmentManager fragmentManager = getChildFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//
+//        // Animasi masuk (fragment baru muncul)
+//        fragmentTransaction.setCustomAnimations(R.anim.slide_in_pesanan, R.anim.fade_out); // Atur animasi sesuai dengan preferensi Anda
+//
+//        // Animasi keluar (fragment lama menghilang)
+//        fragmentTransaction.setCustomAnimations(R.anim.slide_in_pesanan, R.anim.fade_out); // Atur animasi sesuai dengan preferensi Anda
+//
+//        fragmentTransaction.replace(R.id.fragment_container, fragment);
+//        fragmentTransaction.addToBackStack(null);
+//        fragmentTransaction.commit();
+//    }
 }
