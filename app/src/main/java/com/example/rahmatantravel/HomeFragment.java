@@ -32,6 +32,7 @@ public class HomeFragment extends Fragment {
     private CardView menuHaji;
     private CardView menuTour;
     private CardView menuLainnya;
+    private CardView tampilpaket;
     private TextView hariIniTextView;
     private TextView waktuSekarang;
     private SimpleDateFormat sdf = new SimpleDateFormat("HH:mm z", Locale.getDefault());
@@ -107,6 +108,7 @@ public class HomeFragment extends Fragment {
         menuHaji = view.findViewById(R.id.menuHaji);
         menuTour = view.findViewById(R.id.menuTour);
         menuLainnya = view.findViewById(R.id.menuLainnya);
+        tampilpaket = view.findViewById(R.id.cardLuar1);
 
         selengkapnyaGallery = view.findViewById(R.id.selengkapnyaGallery);
         selengkapnyaArtikel = view.findViewById(R.id.selengkapnyaArtikel);
