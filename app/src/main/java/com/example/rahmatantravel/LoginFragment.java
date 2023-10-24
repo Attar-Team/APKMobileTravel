@@ -14,15 +14,22 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import com.example.projectpostapi.api.UserPostRequest;
+import com.example.rahmatantravel.api.RetrofitClient;
+import com.example.rahmatantravel.api.UserPostResponse;
 import com.example.rahmatantravel.databinding.FragmentLoginBinding;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginFragment extends Fragment {
 
     private FragmentLoginBinding binding;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
@@ -34,11 +41,11 @@ public class LoginFragment extends Fragment {
             String username = usernameEditText.getText().toString();
             String password = passwordEditText.getText().toString();
 
-            if (username.equals("user") && password.equals("123")) {
-                showDialogSuccess();
-            } else {
-                showDialogFail();
-            }
+            createPost(username, password);
+
+            System.out.println("Request sent. Value " + username);
+            System.out.println("Request sent. Value " + password);
+
         });
 
         return view;
@@ -81,4 +88,37 @@ public class LoginFragment extends Fragment {
 
         dialog.show();
     }
+
+    private void createPost(String email, String password) {
+        RetrofitClient.INSTANCE.getInstance().post(new UserPostRequest(email, password)).enqueue(new Callback<UserPostResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<UserPostResponse> call, @NonNull Response<UserPostResponse> response) {
+                if (response.isSuccessful()) {
+                    UserPostResponse userPostResponse = response.body();
+                    if (userPostResponse != null && userPostResponse.getStatus().equals("success")) {
+
+                        System.out.println("Request successful. Response: " + email);
+                        System.out.println("Request successful. Response: " + password);
+                        System.out.println("Request successful. Response: " + userPostResponse.getResponse());
+
+                        showDialogSuccess();
+
+                    } else {
+                        System.out.println("Unexpected response: " + userPostResponse);
+                        showDialogFail();
+                    }
+                } else {
+                    System.out.println("Server error. Status code: " + response.code());
+                    showDialogFail();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<UserPostResponse> call, @NonNull Throwable t) {
+                System.out.println("Request failed: " + t.getMessage());
+                showDialogFail();
+            }
+        });
+    }
+
 }
