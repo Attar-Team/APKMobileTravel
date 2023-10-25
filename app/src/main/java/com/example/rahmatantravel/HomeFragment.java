@@ -177,7 +177,14 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
+        tampilpaket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Memulai MenuLainnyaActivity (jika ada)
+                Intent intent = new Intent(getActivity(), Tampilpaket   .class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
     private void updateWaktuSekarang() {
