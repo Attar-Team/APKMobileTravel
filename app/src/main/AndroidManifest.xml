@@ -14,10 +14,26 @@
         android:theme="@style/Theme.RahmatanTravel"
         tools:targetApi="31">
         <activity
-            android:name=".Tampilpaket"
+            android:name=".VerificationActivity"
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name=".LoginActivityRevisi2"
             android:exported="false" />
         <activity
-            android:name=".pilihpaket"
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivityRevisi"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Tampilpaket"
             android:exported="false" />
         <activity
             android:name=".MenuLainnya"
@@ -33,12 +49,7 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
         </activity>
         <activity
             android:name=".MainActivity"
