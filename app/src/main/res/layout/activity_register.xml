@@ -36,14 +36,16 @@
             android:background="@drawable/bgcard3"
             android:gravity="center_vertical">
             <EditText
-                android:layout_width="wrap_content"
+                android:id="@+id/txt_email"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
                 android:background="@null"
                 android:layout_marginHorizontal="25dp"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/poppinsmedium"/>
+                android:fontFamily="@font/poppinsmedium"
+                android:paddingVertical="10dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,32 +54,57 @@
             android:background="@drawable/bgcard3"
             android:gravity="center_vertical">
             <EditText
-                android:layout_width="wrap_content"
+                android:id="@+id/password"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:background="@null"
                 android:layout_marginHorizontal="25dp"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/poppinsmedium"/>
+                android:fontFamily="@font/poppinsmedium"
+                android:inputType="textPassword"
+                android:paddingVertical="10dp"/>
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*Password minimal 8 kata"
+            android:fontFamily="@font/poppinsmedium"
+            android:textColor="@color/red"
+            android:textSize="10dp"
+            android:layout_marginLeft="10dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/bgcard3"
             android:gravity="center_vertical">
             <EditText
-                android:layout_width="wrap_content"
+                android:id="@+id/re_password"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Re Password"
                 android:background="@null"
                 android:layout_marginHorizontal="25dp"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/poppinsmedium"/>
+                android:fontFamily="@font/poppinsmedium"
+                android:inputType="textPassword"
+                android:paddingVertical="10dp"/>
         </LinearLayout>
+        <TextView
+            android:id="@+id/errorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="10dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:textColor="@color/red"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"/>
         <androidx.cardview.widget.CardView
+            android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="60dp"
