@@ -52,6 +52,30 @@
             android:exported="false">
         </activity>
         <activity
+            android:name=".DoaActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".KiblatActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".QuranActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".GalleryActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".ArtikelActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".TentangActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true" />
     </application>
