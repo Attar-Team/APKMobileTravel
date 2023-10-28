@@ -30,7 +30,6 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="-10dp"
                         android:src="@drawable/baseline_person_24"
                         />
                 </androidx.cardview.widget.CardView>
@@ -44,13 +43,14 @@
                         android:layout_height="wrap_content"
                         android:gravity="center">
                         <TextView
+                            android:id="@+id/namaAkun"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Zarif Nur"
                             android:textColor="#fff"
                             android:textStyle="bold"
                             android:fontFamily="@font/poppingbold"
-                            android:textSize="30dp"/>
+                            android:textSize="25sp"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -68,7 +68,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="-10dp"
                         android:text="085942972801"
                         android:fontFamily="@font/poppinssemibold"
                         android:textColor="#fff"/>
