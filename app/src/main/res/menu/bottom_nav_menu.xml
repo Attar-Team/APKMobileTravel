@@ -4,20 +4,20 @@
     <item
         android:id="@+id/home"
         android:title="Home"
-        android:icon="@drawable/baseline_home_24" />
+        android:icon="@drawable/iconhome" />
     <item
         android:id="@+id/pesanan"
         android:title="Pesanan"
-        android:icon="@drawable/baseline_shopping_cart_24"/>
-    <item
-        android:title=""/>
+        android:icon="@drawable/iconorder"/>
+<!--    <item-->
+<!--        android:title=""/>-->
     <item
         android:id="@+id/simpan"
         android:title="Simpan"
-        android:icon="@drawable/baseline_bookmark_24"/>
+        android:icon="@drawable/iconbookmark"/>
     <item
         android:id="@+id/akun"
         android:title="Akun"
-        android:icon="@drawable/baseline_person_24"/>
+        android:icon="@drawable/iconaccount"/>
 
 </menu>

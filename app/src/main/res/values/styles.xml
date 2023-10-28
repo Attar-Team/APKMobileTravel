@@ -5,4 +5,9 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:fontFamily">@font/poppinssemibold</item>
     </style>
+
+    <style name="TitleNavBar">
+        <item name="android:fontFamily">@font/poppinsmedium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>

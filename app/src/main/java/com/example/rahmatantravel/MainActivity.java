@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        fab = findViewById(R.id.fab);
+//        fab = findViewById(R.id.fab);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new HomeFragment()).commit();
@@ -48,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
-        fab.setOnClickListener(view -> {
-            // Tambahkan logika untuk menampilkan dialog atau melakukan tindakan lain saat FAB diklik.
-        });
+//        fab.setOnClickListener(view -> {
+//            // Tambahkan logika untuk menampilkan dialog atau melakukan tindakan lain saat FAB diklik.
+//        });
     }
 
     private void replaceFragment(Fragment fragment) {
