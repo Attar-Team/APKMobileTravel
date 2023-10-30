@@ -579,60 +579,67 @@
                     android:orientation="horizontal"
                     android:layout_marginRight="20dp">
 
-                    <ViewFlipper
-                        android:id="@+id/view_flipper"
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/smartSlider"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:autoStart="true"
-                        android:flipInterval="2000"
-                        android:inAnimation="@android:anim/slide_in_left"
-                        android:outAnimation="@android:anim/slide_out_right">
+                        android:layout_height="200dp"
+                        android:paddingStart="30dp"
+                        android:paddingEnd="30dp"
+                        />
+<!--                    <ViewFlipper-->
+<!--                        android:id="@+id/view_flipper"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:autoStart="true"-->
+<!--                        android:flipInterval="2000"-->
+<!--                        android:inAnimation="@android:anim/slide_in_left"-->
+<!--                        android:outAnimation="@android:anim/slide_out_right">-->
 
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="370dp"
-                            android:layout_height="200dp"
-                            android:layout_marginTop="10dp"
-                            android:elevation="10dp"
-                            app:cardCornerRadius="10dp"
-                            app:cardUseCompatPadding="true">
+<!--                        <androidx.cardview.widget.CardView-->
+<!--                            android:layout_width="370dp"-->
+<!--                            android:layout_height="200dp"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:elevation="10dp"-->
+<!--                            app:cardCornerRadius="10dp"-->
+<!--                            app:cardUseCompatPadding="true">-->
 
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:src="@drawable/galeri1"
-                                android:scaleType="centerCrop"/>
-                        </androidx.cardview.widget.CardView>
+<!--                            <ImageView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:src="@drawable/galeri1"-->
+<!--                                android:scaleType="centerCrop"/>-->
+<!--                        </androidx.cardview.widget.CardView>-->
 
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="370dp"
-                            android:layout_height="200dp"
-                            android:layout_marginTop="10dp"
-                            android:elevation="10dp"
-                            app:cardCornerRadius="10dp"
-                            app:cardUseCompatPadding="true">
+<!--                        <androidx.cardview.widget.CardView-->
+<!--                            android:layout_width="370dp"-->
+<!--                            android:layout_height="200dp"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:elevation="10dp"-->
+<!--                            app:cardCornerRadius="10dp"-->
+<!--                            app:cardUseCompatPadding="true">-->
 
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:src="@drawable/galeri2"
-                                android:scaleType="centerCrop"/>
-                        </androidx.cardview.widget.CardView>
+<!--                            <ImageView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:src="@drawable/galeri2"-->
+<!--                                android:scaleType="centerCrop"/>-->
+<!--                        </androidx.cardview.widget.CardView>-->
 
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="370dp"
-                            android:layout_height="200dp"
-                            android:layout_marginTop="10dp"
-                            android:elevation="10dp"
-                            app:cardCornerRadius="10dp"
-                            app:cardUseCompatPadding="true">
+<!--                        <androidx.cardview.widget.CardView-->
+<!--                            android:layout_width="370dp"-->
+<!--                            android:layout_height="200dp"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:elevation="10dp"-->
+<!--                            app:cardCornerRadius="10dp"-->
+<!--                            app:cardUseCompatPadding="true">-->
 
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:src="@drawable/galeri3"
-                                android:scaleType="centerCrop"/>
-                        </androidx.cardview.widget.CardView>
-                    </ViewFlipper>
+<!--                            <ImageView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:src="@drawable/galeri3"-->
+<!--                                android:scaleType="centerCrop"/>-->
+<!--                        </androidx.cardview.widget.CardView>-->
+<!--                    </ViewFlipper>-->
                 </LinearLayout>
             </LinearLayout>
 

@@ -9,15 +9,22 @@ import android.os.Message;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bdtopcoder.smart_slider.SliderAdapter;
+import com.bdtopcoder.smart_slider.SliderItem;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -92,6 +99,20 @@ public class HomeFragment extends Fragment {
         waktuSekarang = view.findViewById(R.id.waktuSekarang);
 
         sdf.setTimeZone(TimeZone.getTimeZone("Asia/Jakarta"));
+
+        ViewPager2 viewPager2 = view.findViewById(R.id.smartSlider);
+
+        List<SliderItem> sliderItems = new ArrayList<>();
+        sliderItems.add(new SliderItem(R.drawable.galeri3,"image 3"));
+        sliderItems.add(new SliderItem(R.drawable.galeri1,"Image 1"));
+        sliderItems.add(new SliderItem(R.drawable.galeri2,"Image 2"));
+        sliderItems.add(new SliderItem(R.drawable.galeri3,"image 3"));
+
+        viewPager2.setAdapter(new SliderAdapter(sliderItems,viewPager2,3000));
+
+        viewPager2.setCurrentItem(1);
+
+        new SliderAdapter(this::onCLick);
 
         timeHandler = new Handler(Looper.getMainLooper()){
             public void handleMessage(@NonNull Message msg){
@@ -191,5 +212,9 @@ public class HomeFragment extends Fragment {
         Date currentTime = new Date();
         String formattedTime =sdf.format(currentTime);
         waktuSekarang.setText(formattedTime);
+    }
+
+    private void onCLick(int position, String title, View view) {
+        Toast.makeText(requireActivity(), "Position: " + position + " Title: " + title, Toast.LENGTH_SHORT).show();
     }
 }
