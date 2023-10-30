@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "68410965576",
+    "project_id": "rahmatantravellogin",
+    "storage_bucket": "rahmatantravellogin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68410965576:android:e097b5e8132f2813e5a27d",
+        "android_client_info": {
+          "package_name": "com.example.rahmatantravel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnz30PhkNhdQYsG3rcjhdCTX7W48G0HwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
