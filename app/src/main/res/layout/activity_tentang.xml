@@ -48,18 +48,23 @@
             android:layout_marginLeft="10dp"
             android:textSize="10sp"
             android:layout_marginRight="10dp"/>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/maps"
-            android:layout_width="match_parent"
-            android:layout_height="195dp"
-            app:cardCornerRadius="20dp"
-            android:elevation="10dp"
-            app:cardUseCompatPadding="true">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/maps"/>
-        </androidx.cardview.widget.CardView>
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/maps"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="195dp"-->
+<!--            app:cardCornerRadius="20dp"-->
+<!--            android:elevation="10dp"-->
+<!--            app:cardUseCompatPadding="true">-->
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:src="@drawable/maps"/>-->
+<!--        </androidx.cardview.widget.CardView>-->
+        <WebView
+            android:id="@+id/googlemap_webView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
