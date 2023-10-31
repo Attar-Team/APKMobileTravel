@@ -10,5 +10,11 @@
     <string name="akun">Akun</string>
     <string name="todo">TODO</string>
     <string name="asyam">Asyam</string>
+<<<<<<< Updated upstream
     <string name="subjudul"><![CDATA[Travel Umroh & Haji]]></string>
 </resources>
+=======
+    <string name="idsignin">68410965576-iqb39p2a2trhi20ibcun1f2dd5f4du9s.apps.googleusercontent.com</string>
+
+</resources>
+>>>>>>> Stashed changes
