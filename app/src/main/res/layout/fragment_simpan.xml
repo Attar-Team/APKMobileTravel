@@ -5,46 +5,37 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SimpanFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-    <androidx.cardview.widget.CardView
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="18dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="26dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Simpan"
-            android:textSize="24dp"
-            android:fontFamily="@font/poppingbold"
-            android:textColor="@color/black"/>
-    </androidx.cardview.widget.CardView>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
         <androidx.cardview.widget.CardView
+            android:id="@+id/header"
             android:layout_width="match_parent"
-            android:layout_marginLeft="38dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:elevation="18dp">
 
-            app:cardCornerRadius="10dp"
-            android:layout_marginRight="38dp"
-            android:layout_height="40dp"
-            android:alpha="0.3"
-            android:backgroundTint="#AAAAAA">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppingbold"
+                android:text="Simpan"
+                android:textColor="@color/black"
+                android:textSize="24dp" />
+        </androidx.cardview.widget.CardView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
             <LinearLayout
                 android:layout_width="match_parent"
+<<<<<<< Updated upstream
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
             <ImageView
@@ -56,58 +47,39 @@
                 app:tint="@color/black" />
             <EditText
                 android:layout_width="match_parent"
+=======
+>>>>>>> Stashed changes
                 android:layout_height="wrap_content"
-                android:hint="Search"
-                android:textColorHint="@color/black"
-                android:backgroundTint="@color/black"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:src="@drawable/iconsimpan1"
-            android:layout_gravity="right"
-            android:layout_marginLeft="38dp"
-            android:layout_marginRight="38dp">
+                android:orientation="vertical">
 
-        </ImageView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp"
-                app:cardCornerRadius="20dp"
-                android:layout_marginRight="38dp"
-                android:layout_marginLeft="38dp"
-                android:elevation="10dp">
-
-                <LinearLayout
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="90dp"
-                        android:layout_height="120dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/brosurpaket"
-                        android:scaleType="fitXY"/>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:gravity="start"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="120dp"
-                        android:layout_marginLeft="5dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
 
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_marginTop="10dp"
-                            android:layout_width="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:alpha="0.3"
+                    android:backgroundTint="#AAAAAA"
+                    app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/iconcari"
+                            android:backgroundTint="@color/black"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+<<<<<<< Updated upstream
                             android:text="PAKET UMROH 29\nAGUSTUS 2023"
                             android:fontFamily="@font/poppingbold"
                             android:textColor="@color/black"/>
@@ -197,24 +169,187 @@
                                 android:src="@drawable/iconbintang"/>
 
                         </LinearLayout>
+=======
+                            android:backgroundTint="@color/black"
+                            android:hint="Search"
+                            android:textColorHint="@color/black" />
+>>>>>>> Stashed changes
                     </LinearLayout>
-                </LinearLayout>
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/iconsimpan3">
+                </androidx.cardview.widget.CardView>
 
-                    </ImageView>
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/iconsimpan1">
 
-                    
+                </ImageView>
 
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:elevation="10dp"
+                    app:cardCornerRadius="20dp">
 
-    </ScrollView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="90dp"
+                            android:layout_height="120dp"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/brosurpaket" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="120dp"
+                                android:layout_marginLeft="5dp"
+
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/poppingbold"
+                                    android:text="PAKET UMROH 29\nAGUSTUS 2023"
+                                    android:textColor="@color/black" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:layout_marginRight="10dp"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="15dp"
+                                        android:layout_height="15dp"
+                                        android:src="@drawable/iconcalender" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="15dp"
+
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="10dp"
+                                        android:fontFamily="@font/poppinsmedium"
+                                        android:text="29 Agustus 2023"
+                                        android:textColor="@color/black"
+                                        android:textSize="10dp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:layout_marginTop="7dp"
+                                    android:layout_marginRight="10dp"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="15dp"
+                                        android:layout_height="15dp"
+                                        android:src="@drawable/iconjam" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="15dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:fontFamily="@font/poppinsmedium"
+                                        android:text="13 Hari"
+                                        android:textColor="@color/black"
+                                        android:textSize="10dp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+
+                                    android:layout_marginTop="7dp"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="15dp"
+                                        android:layout_height="15dp"
+                                        android:src="@drawable/iconsenang" />
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="3dp"
+                                        android:src="@drawable/iconbintang" />
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="3dp"
+                                        android:src="@drawable/iconbintang" />
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="3dp"
+                                        android:src="@drawable/iconbintang" />
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="3dp"
+                                        android:src="@drawable/iconbintang" />
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="3dp"
+                                        android:src="@drawable/iconbintang" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/iconsimpan3">
+
+                        </ImageView>
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+        </ScrollView>
     </LinearLayout>
 
 
