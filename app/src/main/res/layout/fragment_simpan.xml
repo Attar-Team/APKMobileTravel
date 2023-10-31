@@ -35,7 +35,6 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-<<<<<<< Updated upstream
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
             <ImageView
@@ -45,12 +44,7 @@
                 android:layout_gravity="center"
                 android:src="@drawable/iconcari"
                 app:tint="@color/black" />
-            <EditText
-                android:layout_width="match_parent"
-=======
->>>>>>> Stashed changes
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -79,7 +73,6 @@
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-<<<<<<< Updated upstream
                             android:text="PAKET UMROH 29\nAGUSTUS 2023"
                             android:fontFamily="@font/poppingbold"
                             android:textColor="@color/black"/>
@@ -169,11 +162,6 @@
                                 android:src="@drawable/iconbintang"/>
 
                         </LinearLayout>
-=======
-                            android:backgroundTint="@color/black"
-                            android:hint="Search"
-                            android:textColorHint="@color/black" />
->>>>>>> Stashed changes
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
