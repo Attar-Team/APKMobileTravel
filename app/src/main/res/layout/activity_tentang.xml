@@ -110,6 +110,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"/>
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardIg"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             app:cardUseCompatPadding="true"
@@ -137,6 +138,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardTt"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             app:cardUseCompatPadding="true"
