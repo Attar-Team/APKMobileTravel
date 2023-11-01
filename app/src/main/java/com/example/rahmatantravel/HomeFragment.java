@@ -9,8 +9,11 @@ import android.os.Message;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +22,12 @@ import android.widget.Toast;
 
 import com.bdtopcoder.smart_slider.SliderAdapter;
 import com.bdtopcoder.smart_slider.SliderItem;
+import com.example.rahmatantravel.Adapter.ArtikelAdapter;
+import com.example.rahmatantravel.Adapter.PaketHomeAdapter;
+import com.example.rahmatantravel.Models.ArtikelModels;
+import com.example.rahmatantravel.Models.PaketHomeModels;
 
-import java.sql.Time;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -34,6 +41,13 @@ import java.util.TimeZone;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+
+    //Recycle Artikel
+    private RecyclerView artikelRecyclerView, paketRecyclerView;
+    private ArtikelAdapter artikelAdapter;
+    private PaketHomeAdapter paketAdapter;
+    private ArrayList<ArtikelModels> artikelModelsArrayList;
+    private ArrayList<PaketHomeModels> paketModelsArrayList;
 
     private CardView menuUmroh;
     private CardView menuHaji;
@@ -114,6 +128,29 @@ public class HomeFragment extends Fragment {
 
         new SliderAdapter(this::onCLick);
 
+
+        addDataArtikel();
+        artikelRecyclerView = (RecyclerView) view.findViewById(R.id.recycleViewArtikel);
+        artikelAdapter = new ArtikelAdapter(artikelModelsArrayList);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false);
+//        artikelRecyclerView.setNestedScrollingEnabled(true);
+
+        if (artikelAdapter == null){
+            artikelAdapter = new ArtikelAdapter(artikelModelsArrayList);
+        }
+        artikelRecyclerView.setLayoutManager(layoutManager);
+        artikelRecyclerView.setAdapter(artikelAdapter);
+
+        addDataPaket();
+        paketRecyclerView = (RecyclerView) view.findViewById(R.id.recycleViewPaket);
+        paketAdapter = new PaketHomeAdapter(paketModelsArrayList);
+        RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
+
+        if (paketAdapter == null){
+            paketAdapter = new PaketHomeAdapter(paketModelsArrayList);
+        }
+        paketRecyclerView.setLayoutManager(layoutManager1);
+        paketRecyclerView.setAdapter(paketAdapter);
         timeHandler = new Handler(Looper.getMainLooper()){
             public void handleMessage(@NonNull Message msg){
                 super.handleMessage(msg);
@@ -129,7 +166,6 @@ public class HomeFragment extends Fragment {
         menuHaji = view.findViewById(R.id.menuHaji);
         menuTour = view.findViewById(R.id.menuTour);
         menuLainnya = view.findViewById(R.id.menuLainnya);
-        tampilpaket = view.findViewById(R.id.cardLuar1);
 
         selengkapnyaGallery = view.findViewById(R.id.selengkapnyaGallery);
         selengkapnyaArtikel = view.findViewById(R.id.selengkapnyaArtikel);
@@ -198,14 +234,14 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        tampilpaket.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Memulai MenuLainnyaActivity (jika ada)
-                Intent intent = new Intent(getActivity(), Tampilpaket   .class);
-                startActivity(intent);
-            }
-        });
+//        tampilpaket.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Memulai MenuLainnyaActivity (jika ada)
+//                Intent intent = new Intent(getActivity(), Tampilpaket   .class);
+//                startActivity(intent);
+//            }
+//        });
         return view;
     }
     private void updateWaktuSekarang() {
@@ -216,5 +252,37 @@ public class HomeFragment extends Fragment {
 
     private void onCLick(int position, String title, View view) {
         Toast.makeText(requireActivity(), "Position: " + position + " Title: " + title, Toast.LENGTH_SHORT).show();
+    }
+
+    void addDataArtikel(){
+        artikelModelsArrayList = new ArrayList<>();
+        artikelModelsArrayList.add(new ArtikelModels("Jamaah Haji Indonesia tiba di Madinah", "Hari ini jamaah Indonesia tiba di Madinah dengan Selamat Alhamdulillah", "14 November 2023"));
+        artikelModelsArrayList.add(new ArtikelModels("Jamaah Kebelet Berak", "Terdapat jamaah kebelat berak di pesawat yang dimana jamaah belum makan", "14 Juli 2023"));
+        artikelModelsArrayList.add(new ArtikelModels("Jamaah Menangis Tersedu Sedu", "Beberapa jamaah menangis bahagia karena impiannya untuk umroh terwujudkan", "14 September 2023"));
+        artikelModelsArrayList.add(new ArtikelModels("Covid Melanda", "Hari ini covid", "14 Januari 2023"));
+    }
+    void addDataPaket(){
+        paketModelsArrayList = new ArrayList<>();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        try {
+            Date date1 = dateFormat.parse("2023-01-21");
+            Date date2 = dateFormat.parse("2023-06-10");
+            Date date3 = dateFormat.parse("2023-01-04");
+            Date date4 = dateFormat.parse("2023-04-08");
+
+            paketModelsArrayList.add(new PaketHomeModels("Paket Umroh 21 Januari 2023", date1, 10, 5, 30000000));
+            paketModelsArrayList.add(new PaketHomeModels("Paket Haji 10 Juni 2023", date2, 9, 5, 29000000));
+            paketModelsArrayList.add(new PaketHomeModels("Paket Wisata Turki 04 Januari 2023", date3, 4, 5, 5000000));
+            paketModelsArrayList.add(new PaketHomeModels("Paket Umroh 08 April 2023", date4, 12, 5, 28000000));
+
+            PaketHomeAdapter adapter = new PaketHomeAdapter(paketModelsArrayList);
+            paketRecyclerView.setAdapter(adapter);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.e("DateError", "Error parsing date: " + e.getMessage());
+        }
+
     }
 }
