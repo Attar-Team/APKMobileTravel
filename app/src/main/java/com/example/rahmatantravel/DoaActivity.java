@@ -3,6 +3,8 @@ package com.example.rahmatantravel;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 public class DoaActivity extends AppCompatActivity {
 
@@ -10,5 +12,14 @@ public class DoaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doa);
+
+        ImageView backToMenuLainnya = findViewById(R.id.backToMenuLainnya);
+
+        backToMenuLainnya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 }

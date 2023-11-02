@@ -6,22 +6,33 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.tabs.TabLayout;
 
 public class QuranActivity extends AppCompatActivity {
 
+    private ImageView backToMenuLainnya;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quran);
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         ViewPager2 viewPager = findViewById(R.id.viewPager2);
+        backToMenuLainnya = findViewById(R.id.backToMenuLainnya);
 
         FragmentStateAdapter adapter = new FragmentQuranAdapter(getSupportFragmentManager(), getLifecycle());
         tabLayout.addTab(tabLayout.newTab().setText("Surah"));
         tabLayout.addTab(tabLayout.newTab().setText("Juz"));
         viewPager.setAdapter(adapter);
+
+        backToMenuLainnya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.ImageView;
 
 public class TentangActivity extends AppCompatActivity {
     private WebView googleMapWebView;
@@ -26,10 +27,18 @@ public class TentangActivity extends AppCompatActivity {
 //            }
 //        });
 
+        ImageView backToMenuLainnya = findViewById(R.id.backToMenuLainnya);
         CardView cardWa = findViewById(R.id.cardWa);
         CardView cardIg = findViewById(R.id.cardIg);
         CardView cardTt = findViewById(R.id.cardTt);
 
+
+        backToMenuLainnya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         cardWa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

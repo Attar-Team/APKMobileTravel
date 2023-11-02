@@ -101,6 +101,13 @@ public class MenuLainnya extends AppCompatActivity {
             }
         });
 
+        arrowback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
 
 
     }
