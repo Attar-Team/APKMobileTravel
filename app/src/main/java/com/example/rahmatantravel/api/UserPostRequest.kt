@@ -1,4 +1,4 @@
-package com.example.projectpostapi.api
+package com.example.rahmatantravel.api
 
 import com.google.gson.annotations.SerializedName
 

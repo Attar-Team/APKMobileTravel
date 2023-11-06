@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 //        fab = findViewById(R.id.fab);
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new HomeFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new HomeFragmentK()).commit();
         }
 
         bottomNavigationView.setBackground(null);
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.home:
-                    replaceFragment(new HomeFragment());
+                    replaceFragment(new HomeFragmentK());
                     break;
                 case R.id.pesanan:
                     replaceFragment(new PesananFragment());

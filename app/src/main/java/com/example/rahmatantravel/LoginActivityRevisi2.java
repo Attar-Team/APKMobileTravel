@@ -14,14 +14,11 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.EditText;
-import com.example.projectpostapi.api.UserPostRequest;
+import com.example.rahmatantravel.api.UserPostRequest;
 import com.example.rahmatantravel.api.RetrofitClient;
 import com.example.rahmatantravel.api.UserPostResponse;
-import com.example.rahmatantravel.databinding.FragmentLoginBinding;
 
 import retrofit2.Call;
 import retrofit2.Callback;

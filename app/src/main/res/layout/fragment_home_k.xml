@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:background="@drawable/headhome"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="33dp"
+                    android:gravity="right">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="30dp"
+                        android:src="@drawable/baseline_notifications_24" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="50dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/hariIni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppingbold"
+                        android:text="Senin, 21 Oktober 2023"
+                        android:textColor="@color/white"
+                        android:textSize="8dp" />
+
+                    <TextView
+                        android:id="@+id/jamSholat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppingbold"
+                        android:text="Ashar"
+                        android:textColor="@color/white"
+                        android:textSize="20dp"
+                        android:layout_marginTop="-2dp"/>
+
+                    <TextView
+                        android:id="@+id/waktuSekarang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppingbold"
+                        android:text="16:40 WIB"
+                        android:textColor="@color/white"
+                        android:textSize="28dp"
+                        android:layout_marginTop="-15dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:src="@drawable/baseline_location_on_24"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:id="@+id/location"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppingbold"
+                            android:text="Jember, Jawa Timur"
+                            android:textColor="@color/white"
+                            android:textSize="8dp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/menuUmroh"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="8dp"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="10dp"
+                        android:clickable="true"
+                        android:foreground="@drawable/cardview_selector">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/iconumroh" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/menuHaji"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="8dp"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="10dp"
+                        android:clickable="true"
+                        android:foreground="@drawable/cardview_selector">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/iconhaji" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/menuTour"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="8dp"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="10dp"
+                        android:clickable="true"
+                        android:foreground="@drawable/cardview_selector">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/icontour" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/menuLainnya"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="8dp"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="10dp"
+                        android:clickable="true"
+                        android:foreground="@drawable/cardview_selector">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/iconlainnya" />
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:fontFamily="@font/poppingbold"
+                        android:gravity="center"
+                        android:text="Umroh"
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:fontFamily="@font/poppingbold"
+                        android:gravity="center"
+                        android:text="Haji"
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:fontFamily="@font/poppingbold"
+                        android:gravity="center"
+                        android:text="Tour"
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:fontFamily="@font/poppingbold"
+                        android:gravity="center"
+                        android:text="Lainnya"
+                        android:textColor="@color/black"
+                        android:textSize="10dp" />
+                </LinearLayout>
+            </LinearLayout>
+            <!--END LAYOUT MENU-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppingbold"
+                        android:text="Paket Rahmatan"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:layout_marginLeft="20dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="30dp"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/selengkapnyaPaket"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppingbold"
+                            android:text="Selengkapnya"
+                            android:textColor="@color/soft_orange"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycleViewPaket"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+            <!--Layout Gallery-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppingbold"
+                        android:text="Gallery"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:layout_marginLeft="20dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="30dp"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/selengkapnyaGallery"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppingbold"
+                            android:text="Selengkapnya"
+                            android:textColor="@color/soft_orange"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/smartSlider"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:paddingStart="30dp"
+                        android:paddingEnd="30dp"
+                        />
+                    <!--                    <ViewFlipper-->
+                    <!--                        android:id="@+id/view_flipper"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:autoStart="true"-->
+                    <!--                        android:flipInterval="2000"-->
+                    <!--                        android:inAnimation="@android:anim/slide_in_left"-->
+                    <!--                        android:outAnimation="@android:anim/slide_out_right">-->
+
+                    <!--                        <androidx.cardview.widget.CardView-->
+                    <!--                            android:layout_width="370dp"-->
+                    <!--                            android:layout_height="200dp"-->
+                    <!--                            android:layout_marginTop="10dp"-->
+                    <!--                            android:elevation="10dp"-->
+                    <!--                            app:cardCornerRadius="10dp"-->
+                    <!--                            app:cardUseCompatPadding="true">-->
+
+                    <!--                            <ImageView-->
+                    <!--                                android:layout_width="match_parent"-->
+                    <!--                                android:layout_height="match_parent"-->
+                    <!--                                android:src="@drawable/galeri1"-->
+                    <!--                                android:scaleType="centerCrop"/>-->
+                    <!--                        </androidx.cardview.widget.CardView>-->
+
+                    <!--                        <androidx.cardview.widget.CardView-->
+                    <!--                            android:layout_width="370dp"-->
+                    <!--                            android:layout_height="200dp"-->
+                    <!--                            android:layout_marginTop="10dp"-->
+                    <!--                            android:elevation="10dp"-->
+                    <!--                            app:cardCornerRadius="10dp"-->
+                    <!--                            app:cardUseCompatPadding="true">-->
+
+                    <!--                            <ImageView-->
+                    <!--                                android:layout_width="match_parent"-->
+                    <!--                                android:layout_height="match_parent"-->
+                    <!--                                android:src="@drawable/galeri2"-->
+                    <!--                                android:scaleType="centerCrop"/>-->
+                    <!--                        </androidx.cardview.widget.CardView>-->
+
+                    <!--                        <androidx.cardview.widget.CardView-->
+                    <!--                            android:layout_width="370dp"-->
+                    <!--                            android:layout_height="200dp"-->
+                    <!--                            android:layout_marginTop="10dp"-->
+                    <!--                            android:elevation="10dp"-->
+                    <!--                            app:cardCornerRadius="10dp"-->
+                    <!--                            app:cardUseCompatPadding="true">-->
+
+                    <!--                            <ImageView-->
+                    <!--                                android:layout_width="match_parent"-->
+                    <!--                                android:layout_height="match_parent"-->
+                    <!--                                android:src="@drawable/galeri3"-->
+                    <!--                                android:scaleType="centerCrop"/>-->
+                    <!--                        </androidx.cardview.widget.CardView>-->
+                    <!--                    </ViewFlipper>-->
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp"
+                android:orientation="vertical"
+                android:paddingLeft="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppingbold"
+                        android:text="Artikel"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="30dp"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/selengkapnyaArtikel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppingbold"
+                            android:text="Selengkapnya"
+                            android:textColor="@color/soft_orange"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycleViewArtikel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
