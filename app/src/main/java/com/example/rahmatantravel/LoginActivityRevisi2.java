@@ -88,6 +88,14 @@ public class LoginActivityRevisi2 extends AppCompatActivity {
     }
 
     private void createPost(String email, String password) {
+
+        Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.dialog_loading);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
         RetrofitClient.INSTANCE.getInstance().post(new UserPostRequest(email, password)).enqueue(new Callback<UserPostResponse>() {
             @Override
             public void onResponse(@NonNull Call<UserPostResponse> call, @NonNull Response<UserPostResponse> response) {
@@ -99,14 +107,18 @@ public class LoginActivityRevisi2 extends AppCompatActivity {
                         System.out.println("Request successful. Response: " + password);
                         System.out.println("Request successful. Response: " + userPostResponse.getResponse());
 
+                        dialog.dismiss();
+
                         showDialogSuccess();
 
                     } else {
                         System.out.println("Unexpected response: " + userPostResponse);
+                        dialog.dismiss();
                         showDialogFail();
                     }
                 } else {
                     System.out.println("Server error. Status code: " + response.code());
+                    dialog.dismiss();
                     showDialogFail();
                 }
             }
@@ -114,6 +126,7 @@ public class LoginActivityRevisi2 extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Call<UserPostResponse> call, @NonNull Throwable t) {
                 System.out.println("Request failed: " + t.getMessage());
+                dialog.dismiss();
                 showDialogFail();
             }
         });
