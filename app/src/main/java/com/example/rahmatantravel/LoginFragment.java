@@ -15,7 +15,7 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.projectpostapi.api.UserPostRequest;
+import com.example.rahmatantravel.api.UserPostRequest;
 import com.example.rahmatantravel.api.RetrofitClient;
 import com.example.rahmatantravel.api.UserPostResponse;
 import com.example.rahmatantravel.databinding.FragmentLoginBinding;

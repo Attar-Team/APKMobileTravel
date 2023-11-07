@@ -45,6 +45,7 @@ class HomeFragmentK : Fragment() {
     private lateinit var menuLainnya: CardView
     private lateinit var selengkapnyaGallery: TextView
     private lateinit var selengkapnyaArtikel: TextView
+    private lateinit var selengkapnyaPaket: TextView
     private lateinit var hariIniTextView: TextView
     private lateinit var waktuSekarang: TextView
     private lateinit var sdf: SimpleDateFormat
@@ -142,6 +143,7 @@ class HomeFragmentK : Fragment() {
         }
         timeHandler.sendEmptyMessage(0)
 
+        selengkapnyaPaket = view.findViewById(R.id.selengkapnyaPaket);
         menuUmroh = view.findViewById(R.id.menuUmroh)
         menuHaji = view.findViewById(R.id.menuHaji)
         menuTour = view.findViewById(R.id.menuTour)
@@ -154,6 +156,10 @@ class HomeFragmentK : Fragment() {
         val formattedDate: String = dateFormat.format(today)
         hariIniTextView.text = formattedDate
 
+
+        selengkapnyaPaket.setOnClickListener {
+            startActivity(Intent(activity, SemuaPaket::class.java))
+        }
         menuUmroh.setOnClickListener {
             startActivity(Intent(activity, UmrohActivity::class.java))
         }
