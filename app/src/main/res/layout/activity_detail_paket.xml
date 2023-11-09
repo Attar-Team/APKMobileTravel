@@ -499,6 +499,7 @@
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_booking"
                     android:layout_width="100dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
@@ -512,7 +513,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="@font/poppingbold"
-                        android:text="Bookinng"
+                        android:text="Booking"
                         android:textColor="@color/white"
                         android:textSize="13dp" />
 

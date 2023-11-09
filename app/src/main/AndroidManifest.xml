@@ -14,20 +14,24 @@
         android:theme="@style/Theme.RahmatanTravel"
         tools:targetApi="31">
         <activity
+            android:name=".DetailBooking"
+            android:exported="false" />
+        <activity
             android:name=".SemuaPaket"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="false"/>
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".VerificationActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".LoginActivityRevisi2"
             android:exported="false" />
@@ -36,7 +40,7 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivityRevisi"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Tampilpaket"
             android:exported="false" />
@@ -54,32 +58,31 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".DoaActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".KiblatActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".QuranActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".GalleryActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ArtikelActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".TentangActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".DetailPaket"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>

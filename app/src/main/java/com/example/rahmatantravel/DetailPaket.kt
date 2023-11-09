@@ -1,9 +1,11 @@
 package com.example.rahmatantravel
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import com.example.rahmatantravel.api.RetrofitClient
 import com.example.rahmatantravel.api.paketResponse.APIResponse
 import retrofit2.Call
@@ -23,6 +25,8 @@ class DetailPaket : AppCompatActivity() {
     private lateinit var termasukHarga: TextView
     private lateinit var tidakTermasukHarga: TextView
     private lateinit var bottomViewHarga: TextView
+    private lateinit var btn_booking: CardView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +34,15 @@ class DetailPaket : AppCompatActivity() {
 
         initializeViews()
 
+        btn_booking = findViewById(R.id.btn_booking);
         val paketId = intent.getStringExtra("keberangkatan_id")!!.toInt()
 
         Log.d("paket_id", paketId.toString())
 
+        btn_booking.setOnClickListener {
+            val intent = Intent(this, DetailBooking::class.java)
+            startActivity(intent)
+        }
         RetrofitClient.instance.getPaketById(paketId).enqueue(object : Callback<APIResponse> {
             override fun onResponse(call: Call<APIResponse>, response: Response<APIResponse>) {
                 if (response.isSuccessful) {
