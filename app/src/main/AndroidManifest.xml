@@ -14,6 +14,15 @@
         android:theme="@style/Theme.RahmatanTravel"
         tools:targetApi="31">
         <activity
+            android:name=".UbahProfile"
+            android:exported="false" />
+        <activity
+            android:name=".UbahKataSandi"
+            android:exported="false" />
+        <activity
+            android:name=".Pembayaran"
+            android:exported="false" />
+        <activity
             android:name=".DetailBooking"
             android:exported="false" />
         <activity
@@ -79,7 +88,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".DetailPaket"
             android:exported="false" />

@@ -1,5 +1,6 @@
 package com.example.rahmatantravel;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,12 +8,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link AkunFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+
 public class AkunFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -59,6 +62,25 @@ public class AkunFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_akun, container, false);
+        View view = inflater.inflate(R.layout.fragment_akun, container, false);
+        LinearLayout ubahProfile = view.findViewById(R.id.ubahProfile);
+        LinearLayout ubahPW = view.findViewById(R.id.ubahPW);
+
+        ubahProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), UbahProfile.class);
+                startActivity(intent);
+            }
+        });
+
+        ubahPW.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), UbahKataSandi.class);
+                startActivity(intent);
+            }
+        });
+        return view;
     }
 }

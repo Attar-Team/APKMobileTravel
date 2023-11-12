@@ -1,7 +1,10 @@
 package com.example.rahmatantravel
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -10,6 +13,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
@@ -84,6 +88,13 @@ class HomeFragmentK : Fragment() {
         val layoutManager2 = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         paketRecyclerView.layoutManager = layoutManager2
 
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.dialog_loading_home)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.show()
+
         RetrofitClient.instance.getPaket().enqueue(object : Callback<APIResponse> {
             override fun onResponse(call: Call<APIResponse>, response: Response<APIResponse>) {
 
@@ -116,6 +127,8 @@ class HomeFragmentK : Fragment() {
 
                         paketRecyclerView.adapter = adapter
                         Log.d("recyclerView", "RecyclerView bersasil dibuat")
+
+                        dialog.dismiss()
                     }
                 } else {
                     val errorBody = response.errorBody()?.string()

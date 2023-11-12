@@ -66,6 +66,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"/>
             <LinearLayout
+                android:id="@+id/ubahProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -114,6 +115,7 @@
                     android:textColor="@color/black"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/ubahPW"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -390,14 +392,15 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/baseline_logout_24"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:tint="@color/red"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Logout"
                 android:fontFamily="@font/poppinssemibold"
                 android:layout_gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/red"
                 android:layout_marginLeft="5dp"/>
         </LinearLayout>
 
