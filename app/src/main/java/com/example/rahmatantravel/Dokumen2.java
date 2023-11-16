@@ -1,22 +1,20 @@
 package com.example.rahmatantravel;
 
-import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AkunFragment#newInstance} factory method to
+ * Use the {@link Dokumen2#newInstance} factory method to
  * create an instance of this fragment.
  */
-
-public class AkunFragment extends Fragment {
+public class Dokumen2 extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,8 +24,28 @@ public class AkunFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+//    private OnNextButtonClickListener onNextButtonClickListener;
+//
+//    public interface OnNextButtonClickListener{
+//        void onNextButtonClicked();
+//        void onBackButtonClicked();
+//    }
+//    public void setOnNextButtonClickListener(OnNextButtonClickListener listener){
+//        this.onNextButtonClickListener = listener;
+//    }
+//    private void onNextButtonClick(){
+//        if(onNextButtonClickListener != null){
+//            onNextButtonClickListener.onNextButtonClicked();
+//        }
+//    }
+//    private void onBackButtonClick() {
+//        if (onNextButtonClickListener != null) {
+//            onNextButtonClickListener.onBackButtonClicked();
+//        }
+//    }
 
-    public AkunFragment() {
+
+    public Dokumen2() {
         // Required empty public constructor
     }
 
@@ -37,11 +55,11 @@ public class AkunFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AkunFragment.
+     * @return A new instance of fragment Dokumen2.
      */
     // TODO: Rename and change types and number of parameters
-    public static AkunFragment newInstance(String param1, String param2) {
-        AkunFragment fragment = new AkunFragment();
+    public static Dokumen2 newInstance(String param1, String param2) {
+        Dokumen2 fragment = new Dokumen2();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -62,33 +80,25 @@ public class AkunFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_akun, container, false);
-        LinearLayout ubahProfile = view.findViewById(R.id.ubahProfile);
-        LinearLayout ubahPW = view.findViewById(R.id.ubahPW);
-        LinearLayout DataJamaah = view.findViewById(R.id.DataJamaah);
+        View view = inflater.inflate(R.layout.fragment_dokumen2, container, false);
 
-        DataJamaah.setOnClickListener(new View.OnClickListener() {
+        CardView btn_back = view.findViewById(R.id.btn_back);
+        CardView btn_selanjutnya = view.findViewById(R.id.btn_selanjutnya);
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), DataJamaah.class);
-                startActivity(intent);
+                getFragmentManager().popBackStack();
             }
         });
-        ubahProfile.setOnClickListener(new View.OnClickListener() {
+        btn_selanjutnya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), UbahProfile.class);
-                startActivity(intent);
+                getFragmentManager().beginTransaction().replace(R.id.frameLayout, new Dokumen3()).addToBackStack(null).commit();
             }
         });
 
-        ubahPW.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), UbahKataSandi.class);
-                startActivity(intent);
-            }
-        });
         return view;
+
     }
 }
