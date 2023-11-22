@@ -47,6 +47,17 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         });
+        if (getIntent().hasExtra("fragmentToLoad")) {
+            String fragmentToLoad = getIntent().getStringExtra("fragmentToLoad");
+
+            if (fragmentToLoad.equals("PesananFragment")) {
+                // Load PesananFragment
+                PesananFragment pesananFragment = new PesananFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame_layout, pesananFragment)
+                        .commit();
+            }
+        }
 
 //        fab.setOnClickListener(view -> {
 //            // Tambahkan logika untuk menampilkan dialog atau melakukan tindakan lain saat FAB diklik.

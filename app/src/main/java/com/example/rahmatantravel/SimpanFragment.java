@@ -3,10 +3,25 @@ package com.example.rahmatantravel;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.SearchView;
+
+import com.example.rahmatantravel.Adapter.PaketAdapter;
+import com.example.rahmatantravel.Adapter.SimpanAdapter;
+import com.example.rahmatantravel.Models.PaketModels;
+import com.example.rahmatantravel.Models.SimpanModels;
+
+import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +29,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class SimpanFragment extends Fragment {
+    private RecyclerView recycleSimpan;
+    private SimpanAdapter simpanAdapter;
+    private ArrayList<SimpanModels> simpanModelsArrayList;
+    private SearchView searchView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +78,38 @@ public class SimpanFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_simpan, container, false);
+        View view = inflater.inflate(R.layout.fragment_simpan, container, false);
+        addDataSimpan();
+        recycleSimpan = (RecyclerView) view.findViewById(R.id.recycleSimpan);
+        simpanAdapter = new SimpanAdapter(simpanModelsArrayList);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false);
+        if (simpanAdapter == null){
+            simpanAdapter = new SimpanAdapter(simpanModelsArrayList);
+        }
+        recycleSimpan.setLayoutManager(layoutManager);
+        recycleSimpan.setAdapter(simpanAdapter);
+
+        return view;
+    }
+    void addDataSimpan(){
+        simpanModelsArrayList = new ArrayList<>();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date date1 = dateFormat.parse("2023-01-21");
+            Date date2 = dateFormat.parse("2023-06-10");
+            Date date3 = dateFormat.parse("2023-01-04");
+            Date date4 = dateFormat.parse("2023-04-08");
+
+            simpanModelsArrayList.add(new SimpanModels("Paket Umroh 21 Januari 2023", date1, 10, 5, 30000000));
+            simpanModelsArrayList.add(new SimpanModels("Paket Haji 10 Juni 2023", date2, 9, 5, 29000000));
+            simpanModelsArrayList.add(new SimpanModels("Paket Wisata Turki 04 Januari 2023", date3, 4, 5, 5000000));
+            simpanModelsArrayList.add(new SimpanModels("Paket Umroh 08 April 2023", date4, 12, 5, 28000000));
+
+            SimpanAdapter adapter = new SimpanAdapter(simpanModelsArrayList);
+            recycleSimpan.setAdapter(adapter);
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.e("DateError", "Error parsing date: " + e.getMessage());
+        }
     }
 }

@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.rahmatantravel.Adapter.DetailJamaahAdapter;
@@ -20,12 +22,21 @@ public class DetailBooking extends AppCompatActivity {
     private DetailJamaahAdapter detailJamaahAdapter;
     private ArrayList<DetailJamaahModels> detailJamaahModelsArrayList;
     private ImageView btn_add;
+    private Button btn_booking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_booking);
 
+        btn_booking = findViewById(R.id.btn_booking);
+        btn_booking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailBooking.this, Pembayaran.class);
+                startActivity(intent);
+            }
+        });
         btn_add = findViewById(R.id.btn_add);
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
