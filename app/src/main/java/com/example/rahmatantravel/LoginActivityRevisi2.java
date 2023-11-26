@@ -23,7 +23,7 @@ import com.example.rahmatantravel.api.UserPostResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-public class LoginActivityRevisi2 extends AppCompatActivity {
+public class   LoginActivityRevisi2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

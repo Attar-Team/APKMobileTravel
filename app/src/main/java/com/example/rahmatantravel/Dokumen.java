@@ -1,11 +1,13 @@
 package com.example.rahmatantravel;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
-import com.example.rahmatantravel.databinding.ActivityMainBinding;
+import com.example.rahmatantravel.Fragment.Dokumen1_K;
+import com.example.rahmatantravel.Fragment.Dokumen3_K;
+import com.example.rahmatantravel.Models.SharedViewModel;
 
 public class Dokumen extends AppCompatActivity{
 //    ActivityMainBinding binding;
@@ -15,6 +17,9 @@ public class Dokumen extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dokumen);
+
+        SharedViewModel sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
+
 
 //        StepsView spb = findViewById(R.id.spb);
 //
@@ -26,7 +31,7 @@ public class Dokumen extends AppCompatActivity{
 //                .drawView();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new Dokumen1()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new Dokumen1_K()).commit();
         }
     }
 //    @Override

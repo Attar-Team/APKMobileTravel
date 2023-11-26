@@ -6,268 +6,313 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".Dokumen2">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contoh Foto Scan Dokumen"
-            android:fontFamily="@font/poppinsmedium"
-            android:textColor="@color/black"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:layout_gravity="center"/>
+            android:fontFamily="@font/poppinsmedium"
+            android:text="Contoh Foto Scan Dokumen"
+            android:textColor="@color/black" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="120dp"
                 android:layout_height="80dp"
-                android:src="@drawable/contohktpbenar"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:src="@drawable/contohktpbenar" />
+
             <ImageView
                 android:layout_width="120dp"
                 android:layout_height="80dp"
-                android:src="@drawable/contohktpsalah"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:src="@drawable/contohktpsalah" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <LinearLayout
+                    android:id="@+id/uploadImageKTP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_gravity="center"
                     android:layout_marginBottom="20dp"
-                    android:layout_gravity="center">
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Scan KTP"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/poppinsmedium"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center"/>
+                        android:text="Scan KTP"
+                        android:textColor="@color/black" />
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:layout_gravity="center"
                         app:cardCornerRadius="10dp"
-                        app:cardUseCompatPadding="true"
-                        android:layout_gravity="center">
+                        app:cardUseCompatPadding="true">
+
                         <ImageView
                             android:id="@+id/imgKTP"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/imagenotfound"
-                            android:scaleType="centerCrop"/>
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/imagenotfound" />
                     </androidx.cardview.widget.CardView>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/poppinsmedium"
                         android:text="Upload Image"
                         android:textColor="@color/red"
-                        android:fontFamily="@font/poppinsmedium"
-                        android:layout_gravity="center"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp" />
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/uploadImageRekening"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_gravity="center"
                     android:layout_marginBottom="20dp"
-                    android:layout_gravity="center">
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Scan Buku Rekening"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/poppinsmedium"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center"/>
+                        android:text="Scan Buku Rekening"
+                        android:textColor="@color/black" />
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:layout_gravity="center"
                         app:cardCornerRadius="10dp"
-                        app:cardUseCompatPadding="true"
-                        android:layout_gravity="center">
+                        app:cardUseCompatPadding="true">
+
                         <ImageView
                             android:id="@+id/imgRekening"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/imagenotfound"
-                            android:scaleType="centerCrop"/>
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/imagenotfound" />
                     </androidx.cardview.widget.CardView>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/poppinsmedium"
                         android:text="Upload Image"
                         android:textColor="@color/red"
-                        android:fontFamily="@font/poppinsmedium"
-                        android:layout_gravity="center"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp" />
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/uploadImageBukuNikah"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_gravity="center"
                     android:layout_marginBottom="20dp"
-                    android:layout_gravity="center">
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Scan Buku Pernikahan"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/poppinsmedium"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center"/>
+                        android:text="Scan Buku Pernikahan"
+                        android:textColor="@color/black" />
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:layout_gravity="center"
                         app:cardCornerRadius="10dp"
-                        app:cardUseCompatPadding="true"
-                        android:layout_gravity="center">
+                        app:cardUseCompatPadding="true">
+
                         <ImageView
                             android:id="@+id/imgBukuPernikahan"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/imagenotfound"
-                            android:scaleType="centerCrop"/>
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/imagenotfound" />
                     </androidx.cardview.widget.CardView>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/poppinsmedium"
                         android:text="Upload Image"
                         android:textColor="@color/red"
-                        android:fontFamily="@font/poppinsmedium"
-                        android:layout_gravity="center"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <LinearLayout
+                    android:id="@+id/uploadImageKK"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_gravity="center"
                     android:layout_marginBottom="20dp"
-                    android:layout_gravity="center">
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Scan Kartu Keluarga"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/poppinsmedium"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center"/>
+                        android:text="Scan Kartu Keluarga"
+                        android:textColor="@color/black" />
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:layout_gravity="center"
                         app:cardCornerRadius="10dp"
-                        app:cardUseCompatPadding="true"
-                        android:layout_gravity="center">
+                        app:cardUseCompatPadding="true">
+
                         <ImageView
                             android:id="@+id/imgKK"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/imagenotfound"
-                            android:scaleType="centerCrop"/>
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/imagenotfound" />
                     </androidx.cardview.widget.CardView>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/poppinsmedium"
                         android:text="Upload Image"
                         android:textColor="@color/red"
-                        android:fontFamily="@font/poppinsmedium"
-                        android:layout_gravity="center"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp" />
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/uploadImageAkte"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_gravity="center"
                     android:layout_marginBottom="20dp"
-                    android:layout_gravity="center">
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Scan Akte Kelahiran"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/poppinsmedium"
-                        android:textColor="@color/black"
-                        android:layout_gravity="center"/>
+                        android:text="Scan Akte Kelahiran"
+                        android:textColor="@color/black" />
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:layout_gravity="center"
                         app:cardCornerRadius="10dp"
-                        app:cardUseCompatPadding="true"
-                        android:layout_gravity="center">
+                        app:cardUseCompatPadding="true">
+
                         <ImageView
                             android:id="@+id/imgAkte"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/imagenotfound"
-                            android:scaleType="centerCrop"/>
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/imagenotfound" />
                     </androidx.cardview.widget.CardView>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/poppinsmedium"
                         android:text="Upload Image"
                         android:textColor="@color/red"
-                        android:fontFamily="@font/poppinsmedium"
-                        android:layout_gravity="center"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp" />
                 </LinearLayout>
+
+
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
             android:gravity="center"
-            android:layout_marginTop="20dp">
+            android:orientation="horizontal">
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/btn_back"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="20dp"
                 android:backgroundTint="@color/redOrange"
-                android:layout_marginHorizontal="20dp">
+                app:cardCornerRadius="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kembali"
+                    android:layout_gravity="center"
                     android:fontFamily="@font/poppinsmedium"
-                    android:textColor="@color/white"
                     android:paddingHorizontal="15dp"
                     android:paddingVertical="7dp"
-                    android:layout_gravity="center"/>
+                    android:text="Kembali"
+                    android:textColor="@color/white" />
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/btn_selanjutnya"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="20dp"
                 android:backgroundTint="@color/redOrange"
-                android:layout_marginHorizontal="20dp">
+                app:cardCornerRadius="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Selanjutnya"
+                    android:layout_gravity="center"
                     android:fontFamily="@font/poppinsmedium"
-                    android:textColor="@color/white"
                     android:paddingHorizontal="15dp"
                     android:paddingVertical="7dp"
-                    android:layout_gravity="center"/>
+                    android:text="Selanjutnya"
+                    android:textColor="@color/white" />
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
