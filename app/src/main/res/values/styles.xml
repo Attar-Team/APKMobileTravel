@@ -17,4 +17,21 @@
         <item name="android:fontFamily">@font/poppinsmedium</item>
     </style>
 
+    <style name="CustomEditText" parent="Widget.AppCompat.EditText">
+        <!-- Tint color (highlight color) when focused -->
+        <item name="colorControlActivated">@color/redOrange</item>
+
+        <!-- Text color -->
+        <item name="android:textColor">@color/black</item>
+
+        <!-- Hint color -->
+        <item name="android:textColorHint">@color/orangeLight</item>
+
+        <!-- Background color -->
+        <item name="android:background">@drawable/edittext_background</item>
+
+        <!-- Padding -->
+        <item name="android:padding">8dp</item>
+    </style>
+
 </resources>

@@ -74,146 +74,146 @@ public class Dokumen1 extends Fragment {
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_dokumen1, container, false);
-
-
-        CheckBox checkbox1 = view.findViewById(R.id.cbLaki);
-        CheckBox checkbox2 = view.findViewById(R.id.cbPerempuan);
-        CheckBox cbS       = view.findViewById(R.id.cbS);
-        CheckBox cbM       = view.findViewById(R.id.cbM);
-        CheckBox cbL       = view.findViewById(R.id.cbL);
-        CheckBox cbXL      = view.findViewById(R.id.cbXL);
-        CheckBox cbXXL     = view.findViewById(R.id.cbXXL);
-        checkbox1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // Jika Checkbox 1 terpilih, nonaktifkan Checkbox 2
-                checkbox2.setEnabled(!isChecked);
-
-                // Tambahan: Lakukan sesuatu jika Checkbox 1 berubah status
-                if (isChecked) {
-                    // Lakukan sesuatu ketika Checkbox 1 terpilih
-                } else {
-                    // Lakukan sesuatu ketika Checkbox 1 tidak terpilih
-                }
-            }
-        });
-
-        // Inisialisasi listener untuk Checkbox 2
-        checkbox2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // Jika Checkbox 2 terpilih, nonaktifkan Checkbox 1
-                checkbox1.setEnabled(!isChecked);
-
-                // Tambahan: Lakukan sesuatu jika Checkbox 2 berubah status
-                if (isChecked) {
-                    // Lakukan sesuatu ketika Checkbox 2 terpilih
-                } else {
-                    // Lakukan sesuatu ketika Checkbox 2 tidak terpilih
-                }
-            }
-        });
-
-        cbS.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // Jika Checkbox 1 terpilih, nonaktifkan Checkbox 2
-                cbM.setEnabled(!isChecked);
-                cbL.setEnabled(!isChecked);
-                cbXL.setEnabled(!isChecked);
-                cbXXL.setEnabled(!isChecked);
-
-                // Tambahan: Lakukan sesuatu jika Checkbox 1 berubah status
-                if (isChecked) {
-                    // Lakukan sesuatu ketika Checkbox 1 terpilih
-                } else {
-                    // Lakukan sesuatu ketika Checkbox 1 tidak terpilih
-                }
-            }
-        });
-        cbM.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // Jika Checkbox 1 terpilih, nonaktifkan Checkbox 2
-                cbS.setEnabled(!isChecked);
-                cbL.setEnabled(!isChecked);
-                cbXL.setEnabled(!isChecked);
-                cbXXL.setEnabled(!isChecked);
-
-                // Tambahan: Lakukan sesuatu jika Checkbox 1 berubah status
-                if (isChecked) {
-                    // Lakukan sesuatu ketika Checkbox 1 terpilih
-                } else {
-                    // Lakukan sesuatu ketika Checkbox 1 tidak terpilih
-                }
-            }
-        });
-        cbL.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // Jika Checkbox 1 terpilih, nonaktifkan Checkbox 2
-                cbM.setEnabled(!isChecked);
-                cbS.setEnabled(!isChecked);
-                cbXL.setEnabled(!isChecked);
-                cbXXL.setEnabled(!isChecked);
-
-                // Tambahan: Lakukan sesuatu jika Checkbox 1 berubah status
-                if (isChecked) {
-                    // Lakukan sesuatu ketika Checkbox 1 terpilih
-                } else {
-                    // Lakukan sesuatu ketika Checkbox 1 tidak terpilih
-                }
-            }
-        });
-        cbXL.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // Jika Checkbox 1 terpilih, nonaktifkan Checkbox 2
-                cbM.setEnabled(!isChecked);
-                cbL.setEnabled(!isChecked);
-                cbS.setEnabled(!isChecked);
-                cbXXL.setEnabled(!isChecked);
-
-                // Tambahan: Lakukan sesuatu jika Checkbox 1 berubah status
-                if (isChecked) {
-                    // Lakukan sesuatu ketika Checkbox 1 terpilih
-                } else {
-                    // Lakukan sesuatu ketika Checkbox 1 tidak terpilih
-                }
-            }
-        });
-        cbXXL.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // Jika Checkbox 1 terpilih, nonaktifkan Checkbox 2
-                cbM.setEnabled(!isChecked);
-                cbL.setEnabled(!isChecked);
-                cbXL.setEnabled(!isChecked);
-                cbS.setEnabled(!isChecked);
-
-                // Tambahan: Lakukan sesuatu jika Checkbox 1 berubah status
-                if (isChecked) {
-                    // Lakukan sesuatu ketika Checkbox 1 terpilih
-                } else {
-                    // Lakukan sesuatu ketika Checkbox 1 tidak terpilih
-                }
-            }
-        });
-
-
-        CardView btn_selanjutnya = view.findViewById(R.id.btn_selanjutnya);
-        btn_selanjutnya.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.frameLayout, new Dokumen2()).addToBackStack(null).commit();
-            }
-        });
-
-        return view;
-    }
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                             Bundle savedInstanceState) {
+//        // Inflate the layout for this fragment
+//        View view = inflater.inflate(R.layout.fragment_dokumen1, container, false);
+//
+//
+//        CheckBox checkbox1 = view.findViewById(R.id.cbLaki);
+//        CheckBox checkbox2 = view.findViewById(R.id.cbPerempuan);
+//        CheckBox cbS       = view.findViewById(R.id.cbS);
+//        CheckBox cbM       = view.findViewById(R.id.cbM);
+//        CheckBox cbL       = view.findViewById(R.id.cbL);
+//        CheckBox cbXL      = view.findViewById(R.id.cbXL);
+//        CheckBox cbXXL     = view.findViewById(R.id.cbXXL);
+//        checkbox1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                // Jika Checkbox 1 terpilih, nonaktifkan Checkbox 2
+//                checkbox2.setEnabled(!isChecked);
+//
+//                // Tambahan: Lakukan sesuatu jika Checkbox 1 berubah status
+//                if (isChecked) {
+//                    // Lakukan sesuatu ketika Checkbox 1 terpilih
+//                } else {
+//                    // Lakukan sesuatu ketika Checkbox 1 tidak terpilih
+//                }
+//            }
+//        });
+//
+//        // Inisialisasi listener untuk Checkbox 2
+//        checkbox2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                // Jika Checkbox 2 terpilih, nonaktifkan Checkbox 1
+//                checkbox1.setEnabled(!isChecked);
+//
+//                // Tambahan: Lakukan sesuatu jika Checkbox 2 berubah status
+//                if (isChecked) {
+//                    // Lakukan sesuatu ketika Checkbox 2 terpilih
+//                } else {
+//                    // Lakukan sesuatu ketika Checkbox 2 tidak terpilih
+//                }
+//            }
+//        });
+//
+//        cbS.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                // Jika Checkbox 1 terpilih, nonaktifkan Checkbox 2
+//                cbM.setEnabled(!isChecked);
+//                cbL.setEnabled(!isChecked);
+//                cbXL.setEnabled(!isChecked);
+//                cbXXL.setEnabled(!isChecked);
+//
+//                // Tambahan: Lakukan sesuatu jika Checkbox 1 berubah status
+//                if (isChecked) {
+//                    // Lakukan sesuatu ketika Checkbox 1 terpilih
+//                } else {
+//                    // Lakukan sesuatu ketika Checkbox 1 tidak terpilih
+//                }
+//            }
+//        });
+//        cbM.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                // Jika Checkbox 1 terpilih, nonaktifkan Checkbox 2
+//                cbS.setEnabled(!isChecked);
+//                cbL.setEnabled(!isChecked);
+//                cbXL.setEnabled(!isChecked);
+//                cbXXL.setEnabled(!isChecked);
+//
+//                // Tambahan: Lakukan sesuatu jika Checkbox 1 berubah status
+//                if (isChecked) {
+//                    // Lakukan sesuatu ketika Checkbox 1 terpilih
+//                } else {
+//                    // Lakukan sesuatu ketika Checkbox 1 tidak terpilih
+//                }
+//            }
+//        });
+//        cbL.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                // Jika Checkbox 1 terpilih, nonaktifkan Checkbox 2
+//                cbM.setEnabled(!isChecked);
+//                cbS.setEnabled(!isChecked);
+//                cbXL.setEnabled(!isChecked);
+//                cbXXL.setEnabled(!isChecked);
+//
+//                // Tambahan: Lakukan sesuatu jika Checkbox 1 berubah status
+//                if (isChecked) {
+//                    // Lakukan sesuatu ketika Checkbox 1 terpilih
+//                } else {
+//                    // Lakukan sesuatu ketika Checkbox 1 tidak terpilih
+//                }
+//            }
+//        });
+//        cbXL.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                // Jika Checkbox 1 terpilih, nonaktifkan Checkbox 2
+//                cbM.setEnabled(!isChecked);
+//                cbL.setEnabled(!isChecked);
+//                cbS.setEnabled(!isChecked);
+//                cbXXL.setEnabled(!isChecked);
+//
+//                // Tambahan: Lakukan sesuatu jika Checkbox 1 berubah status
+//                if (isChecked) {
+//                    // Lakukan sesuatu ketika Checkbox 1 terpilih
+//                } else {
+//                    // Lakukan sesuatu ketika Checkbox 1 tidak terpilih
+//                }
+//            }
+//        });
+//        cbXXL.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                // Jika Checkbox 1 terpilih, nonaktifkan Checkbox 2
+//                cbM.setEnabled(!isChecked);
+//                cbL.setEnabled(!isChecked);
+//                cbXL.setEnabled(!isChecked);
+//                cbS.setEnabled(!isChecked);
+//
+//                // Tambahan: Lakukan sesuatu jika Checkbox 1 berubah status
+//                if (isChecked) {
+//                    // Lakukan sesuatu ketika Checkbox 1 terpilih
+//                } else {
+//                    // Lakukan sesuatu ketika Checkbox 1 tidak terpilih
+//                }
+//            }
+//        });
+//
+//
+//        CardView btn_selanjutnya = view.findViewById(R.id.btn_selanjutnya);
+//        btn_selanjutnya.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                getFragmentManager().beginTransaction().replace(R.id.frameLayout, new Dokumen2()).addToBackStack(null).commit();
+//            }
+//        });
+//
+//        return view;
+//    }
 }
