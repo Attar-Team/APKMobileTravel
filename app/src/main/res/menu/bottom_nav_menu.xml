@@ -9,12 +9,7 @@
         android:id="@+id/pesanan"
         android:title="Pesanan"
         android:icon="@drawable/iconorder"/>
-<!--    <item-->
-<!--        android:title=""/>-->
-    <item
-        android:id="@+id/simpan"
-        android:title="Simpan"
-        android:icon="@drawable/iconbookmark"/>
+
     <item
         android:id="@+id/akun"
         android:title="Akun"

@@ -13,16 +13,13 @@ public class FragmentPesananAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 2;
     }
 
     @Override
     public Fragment createFragment(int position) {
         if (position == 0) {
-            return new prosesPesanan();
-        } else if (position == 1) {
             return new belumLunasPesanan();
-        } else
+        } else {
             return new lunasPesanan();
-    }
-}
+        }}}

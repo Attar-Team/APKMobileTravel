@@ -1,6 +1,7 @@
 package com.example.rahmatantravel.Fragment
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
@@ -15,6 +16,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +26,7 @@ import com.example.rahmatantravel.DataJamaah
 import com.example.rahmatantravel.Dokumen
 import com.example.rahmatantravel.Models.SharedViewModel
 import com.example.rahmatantravel.R
+import com.example.rahmatantravel.SharedPref.PrefManager
 import com.example.rahmatantravel.api.RetrofitClient
 import com.example.rahmatantravel.api.UploadRequestBody
 import com.example.rahmatantravel.api.customerResponse.CustomerData
@@ -39,6 +42,7 @@ import retrofit2.Response
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
+import java.util.Calendar
 import kotlin.math.log
 
 
@@ -57,6 +61,12 @@ class Dokumen3_K : Fragment(), UploadRequestBody.UploadCallback {
 
     private lateinit var sharedViewModel: SharedViewModel
 
+    private lateinit var LayoutTanggalPenerbitanPasport : EditText
+
+    private var selectedYear = 0
+    private var selectedMonth = 0
+    private var selectedDay = 0
+
     @SuppressLint("Recycle")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,7 +78,7 @@ class Dokumen3_K : Fragment(), UploadRequestBody.UploadCallback {
         val LayoutNomorPasport = view.findViewById<TextInputLayout>(R.id.TextFieldNomorPasport)
         val LayoutNamaPasport = view.findViewById<TextInputLayout>(R.id.TextFieldNamaPasport)
         val LayoutTempatPenerbitanPasport = view.findViewById<TextInputLayout>(R.id.TextFieldTempatPenerbitan)
-        val LayoutTanggalPenerbitanPasport = view.findViewById<TextInputLayout>(R.id.TextFieldTanggalPenerbit)
+        LayoutTanggalPenerbitanPasport = view.findViewById(R.id.TextFieldTanggalPaspor)
         val Simpan = view.findViewById<CardView>(R.id.btn_selanjutnya)
         val Back = view.findViewById<CardView>(R.id.btn_back)
         uploadImagePasport1 = view.findViewById(R.id.uploadImagePasport1)
@@ -131,6 +141,10 @@ class Dokumen3_K : Fragment(), UploadRequestBody.UploadCallback {
                 imagePicker(uploadImagePasport2, REQUEST_CODE_IMAGE + 1)  // Menjalankan fungsi Image Picker
             }
 
+            LayoutTanggalPenerbitanPasport.setOnClickListener {
+                showDatePickerDialog()
+            }
+
             Simpan.setOnClickListener {
 
                 // Log Data
@@ -159,13 +173,29 @@ class Dokumen3_K : Fragment(), UploadRequestBody.UploadCallback {
                 )
                 logData(
                     "Tanggal Penerbitan Pasport",
-                    LayoutTanggalPenerbitanPasport.editText?.text.toString()
+                    LayoutTanggalPenerbitanPasport.text.toString()
                 )
 
-                // Memasukkan data kedalam data class customerData
+                // Mendapatkan teks dari EditText TanggalPenerbitanPasport
+                val tanggalPenerbitanPasporText = LayoutTanggalPenerbitanPasport.text.toString()
+
+                // Memilih tanggal yang akan dimasukkan ke dalam customerData
+                val tanggalPenerbitanPaspor =
+                    if (tanggalPenerbitanPasporText.isNotBlank()) {
+                        tanggalPenerbitanPasporText
+                    } else {
+                        "1990-12-12"
+                    }
+
+                val prefManager = PrefManager(requireContext())
+                val loginData = prefManager.getLoginData()
+
+                val userID = loginData.first ?.toInt()
+                logData("User ID", userID.toString())
+
                 val customerData = CustomerData(
                     NIK = NIK,
-                    user_id = "12",
+                    user_id = "$userID",
                     NamaLengkap = NamaLengkap,
                     TempatLahir = TempatLahir,
                     TanggalLahir = TanggalLahir,
@@ -177,8 +207,9 @@ class Dokumen3_K : Fragment(), UploadRequestBody.UploadCallback {
                     NomorPasport = LayoutNomorPasport.editText?.text.toString(),
                     NamaPasport = LayoutNamaPasport.editText?.text.toString(),
                     TempatPenerbitanPasport = LayoutTempatPenerbitanPasport.editText?.text.toString(),
-                    TanggalPenerbitanPasport = LayoutTanggalPenerbitanPasport.editText?.text.toString()
+                    TanggalPenerbitanPasport = tanggalPenerbitanPaspor
                 )
+
 
                 // Inisiasi Map untuk hasil pemerosesan gambar menjadi MultipartBody.Part
                 val processedData = mutableMapOf<String, MultipartBody.Part>()
@@ -209,7 +240,7 @@ class Dokumen3_K : Fragment(), UploadRequestBody.UploadCallback {
                             val outputStream = FileOutputStream(file)
                             inputStream.copyTo(outputStream)
 
-                            val body = UploadRequestBody(file, "image/*", this)
+                            val body = UploadRequestBody(file, "image", this)
                             val photo = MultipartBody.Part.createFormData("foto[$key]", file.name, body)
 
                             // Memasukkan gambar yang telah di proses kedalam Map
@@ -259,7 +290,7 @@ class Dokumen3_K : Fragment(), UploadRequestBody.UploadCallback {
                 logData("Data Poto Pasport 2", paspor2Photo.toString())
 
                 // Menjalankan fungsi showDialogCheck
-                showDialogCheck(customerData.NIK, customerData.NamaLengkap, customerData.TanggalLahir, customerData.TempatLahir, customerData.JenisKelamin,
+                showDialogCheck(customerData.NIK, customerData.user_id, customerData.NamaLengkap, customerData.TanggalLahir, customerData.TempatLahir, customerData.JenisKelamin,
                     customerData.Pekerjaan, customerData.Alamat, customerData.Sizes, profilePhoto, ktpPhoto, keluargaPhoto, rekeningPhoto, aktePhoto,
                     pernikahanPhoto, pasporPhoto, paspor2Photo, customerData.NomorPasport, customerData.NamaPasport, customerData.TempatPenerbitanPasport, customerData.TanggalPenerbitanPasport)
 
@@ -373,7 +404,7 @@ class Dokumen3_K : Fragment(), UploadRequestBody.UploadCallback {
         dialog.show()
     }
 
-    private fun showDialogCheck(nik: String, nama: String, tglLahir: String, tempatLahir: String, jk: String, pekerjaan: String, alamat: String, sizes: String, imageUri: MultipartBody.Part?,
+    private fun showDialogCheck(nik: String, userId : String, nama: String, tglLahir: String, tempatLahir: String, jk: String, pekerjaan: String, alamat: String, sizes: String, imageUri: MultipartBody.Part?,
                 selectedImageKTP: MultipartBody.Part?, selectedImageKK: MultipartBody.Part?, selectedImageRekening: MultipartBody.Part?, selectedImageAkte: MultipartBody.Part?, selectedImageBukuNikah: MultipartBody.Part?,
                                 paspor1: MultipartBody.Part?, paspor2: MultipartBody.Part?, nomorPaspor: String, namaPaspor: String, tempatTerbitPaspor: String, tanggalTerbitPaspor: String) {
         val dialog = Dialog(requireContext())
@@ -382,17 +413,20 @@ class Dokumen3_K : Fragment(), UploadRequestBody.UploadCallback {
         dialog.setContentView(R.layout.dialog_data_checkl)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
+        val Dialog = Dialog(requireContext())
+        Dialog.setContentView(R.layout.dialog_loading)
+        Dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        Dialog.setCancelable(false)
+        Dialog.show()
+
+
         val buttonNext = dialog.findViewById<Button>(R.id.btnNext)
         buttonNext.setOnClickListener {
             dialog.dismiss()
-            val Dialog = Dialog(requireContext())
-            Dialog.setContentView(R.layout.dialog_loading)
-            Dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            Dialog.setCancelable(false)
-            Dialog.show()
 
             RetrofitClient.instance.tambahProfile(
                 NIK = nik,
+                user_id = userId,
                 NamaLengkap = nama,
                 TempatLahir = tempatLahir,
                 TanggalLahir = tglLahir,
@@ -425,23 +459,25 @@ class Dokumen3_K : Fragment(), UploadRequestBody.UploadCallback {
                             logData("Response Info", responseBody.info)
 
                             Dialog.dismiss()
-
                             showDialogSuccess()
                         }else{
                             logData("Response Body Null", response.message())
 
+                            Dialog.dismiss()
                             showDialogFail()
                         }
                     }else{
-                        logData("Response Failed", response.message())
+                        logData("Response Failed", response.message().toString())
 
-                        showDialogFail()
+                        Dialog.dismiss()
+                        showDialogSuccess()
                     }
                 }
 
                 override fun onFailure(call: Call<PhotoResponse>, t: Throwable) {
                     logData("Response on Failure", t.message.toString())
 
+                    Dialog.dismiss()
                     showDialogFail()
                 }
             })
@@ -450,9 +486,31 @@ class Dokumen3_K : Fragment(), UploadRequestBody.UploadCallback {
         val buttonRepeat = dialog.findViewById<Button>(R.id.btnRepeat)
         buttonRepeat.setOnClickListener {
             dialog.dismiss()
+            Dialog.dismiss()
         }
             dialog.show()
 
+    }
+
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(
+            requireContext(),
+            DatePickerDialog.OnDateSetListener { _, year, month, day ->
+                selectedYear = year
+                selectedMonth = month
+                selectedDay = day
+                LayoutTanggalPenerbitanPasport.setText("$selectedYear-${selectedMonth + 1}-$selectedDay")
+            },
+            year,
+            month,
+            day
+        )
+        datePickerDialog.show()
     }
 
 }

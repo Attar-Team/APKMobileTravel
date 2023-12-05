@@ -3,12 +3,15 @@ package com.example.rahmatantravel.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.rahmatantravel.R
 import com.example.rahmatantravel.api.paketResponse.HotelResponse
 import com.example.rahmatantravel.api.paketResponse.KeberangkatanResponse
 import com.example.rahmatantravel.api.paketResponse.PaketResponse
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -26,15 +29,23 @@ class PaketViewAdapter (private val keberangkatanResponse: List<KeberangkatanRes
             val waktuPaket = itemView.findViewById<TextView>(R.id.waktuPaket)
             val rateHotel = itemView.findViewById<TextView>(R.id.rateHotel)
             val hargaPaket = itemView.findViewById<TextView>(R.id.hargaPaket)
+            val gambarPaket = itemView.findViewById<ImageView>(R.id.brosurPaket)
 
             fun bind(keberangkatanResponse: KeberangkatanResponse, paketResponse: PaketResponse, hotelResponse: HotelResponse){
                 val tanggalPaketFormatted = formatDate(keberangkatanResponse.tanggal)
+
+                val harga = formatCurrency(paketResponse.harga[0].harga)
 
                 judulPaket.text = paketResponse.nama_paket
                 tanggalBerangkat.text = tanggalPaketFormatted
                 waktuPaket.text = paketResponse.lama_hari.toString()
                 rateHotel.text = hotelResponse.bintang.toString()
-                hargaPaket.text = paketResponse.harga[0].harga.toString()
+                hargaPaket.text = "Mulai dari $harga"
+
+                Glide.with(itemView.context)
+                    .load("https://rahmatanumrah.000webhostapp.com/uploads/foto_brosur/${paketResponse.foto_paket}")
+                    .into(gambarPaket)
+
             }
 
             fun formatDate(inputDate: String): String {
@@ -42,6 +53,11 @@ class PaketViewAdapter (private val keberangkatanResponse: List<KeberangkatanRes
                 val outputFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
                 val date: Date = inputFormat.parse(inputDate) ?: Date()
                 return outputFormat.format(date)
+            }
+
+            fun formatCurrency(number: Int): String {
+                val format = NumberFormat.getCurrencyInstance(Locale("id", "ID")) // Locale untuk Indonesia
+                return format.format(number)
             }
         }
 

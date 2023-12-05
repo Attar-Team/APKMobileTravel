@@ -63,25 +63,10 @@
                     android:text="Variasi Kamar"
                     android:layout_marginTop="10dp"/>
                 <RadioGroup
+                    android:id="@+id/radioHarga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-                    <RadioButton
-                        android:id="@+id/radio_quad"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Quad\n30000000"/>
-                    <RadioButton
-                        android:id="@+id/radio_triple"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Triple\n31000000"
-                        android:layout_marginHorizontal="10dp"/>
-                    <RadioButton
-                        android:id="@+id/radio_double"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Double\n32000000"/>
                 </RadioGroup>
             </LinearLayout>
         </LinearLayout>

@@ -1,16 +1,20 @@
 package com.example.rahmatantravel.api
 
+import com.example.rahmatantravel.api.artikelResponse.APIArtikel
+import com.example.rahmatantravel.api.customerResponse.APICustomer
 import com.example.rahmatantravel.api.paketResponse.APIResponse
-import com.example.rahmatantravel.api.customerResponse.CustomerResponse
-import com.example.rahmatantravel.api.customerResponse.DataCustomerResponse
 import com.example.rahmatantravel.api.customerResponse.PhotoResponse
+import com.example.rahmatantravel.api.pemesananResponse.APIPesanan
+import com.example.rahmatantravel.api.pemesananResponse.PemesananPostResponse
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.PartMap
 import retrofit2.http.Path
 
 interface API {
@@ -20,11 +24,17 @@ interface API {
         @Body body: UserPostRequest
     ): Call<UserPostResponse>
 
+    @POST("apiRegister")
+    @Multipart
+    fun register(
+        @PartMap data: Map<String,String>
+    ): Call<RegisterPostResponse>
+
     @POST("apiTambahProfileCustomer")
     @Multipart
     fun tambahProfile(
         @Part ("NIK") NIK: String,
-//        @Part ("user_id") user_id: String,
+        @Part ("user_id") user_id: String,
         @Part ("nama") NamaLengkap: String,
         @Part ("tempat_lahir") TempatLahir: String,
         @Part ("tanggal_lahir") TanggalLahir: String,
@@ -47,13 +57,10 @@ interface API {
         @Part FotoBukuNikah: MultipartBody.Part?
     ): Call<PhotoResponse>
 
-    @POST("uploadPasport")
+    @POST("apiTambahPemesanan")
     @Multipart
-    fun uploadPasport(
-        @Part ("nama") nama: String,
-        @Part foto1 : MultipartBody.Part?,
-        @Part foto2 : MultipartBody.Part?
-    ) : Call<PhotoResponse>
+    fun tambahPemesanan(@PartMap data: Map<String, @JvmSuppressWildcards RequestBody>,
+    @Part image: MultipartBody.Part?) : Call<PemesananPostResponse>
 
     @GET("apiGetKeberangkatan")
     fun getPaket(): Call<APIResponse>
@@ -62,6 +69,18 @@ interface API {
     fun getPaketById(@Path("id") id: Int): Call<APIResponse>
 
     @GET("apiGetProfileCustomer/{id}")
-    fun getProfileCustomer(@Path("id") id: Int): Call<List<DataCustomerResponse>>
+    fun getProfileCustomer(@Path("id") id: Int): Call<APICustomer>
+
+    @GET("apiGetPemesananByStatus/{statusPembayaran}/{userID}")
+    fun getPemesananByStatus(
+        @Path("statusPembayaran") statusPembayaran: String,
+        @Path("userID") userID: String
+    ): Call<APIPesanan>
+
+    @GET("apiGetKeberangkatanByMenu/{menu}")
+    fun getPaketByMenu(@Path("menu") menu: String): Call<APIResponse>
+
+    @GET("apiGetArtikel")
+    fun getArtikel(): Call<APIArtikel>
 
 }

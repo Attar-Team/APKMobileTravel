@@ -47,12 +47,13 @@
         <TextView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="Aktifkan GPS anda untuk melanjutkan menggunakan fitur ini!"
+            android:text="Pastikan anda menghadap Ka'bah"
             android:textAlignment="center"
             android:fontFamily="@font/poppinssemibold"
             android:textColor="@color/black"
             android:layout_marginTop="20dp"/>
         <androidx.cardview.widget.CardView
+            android:id="@+id/buttonLanjut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

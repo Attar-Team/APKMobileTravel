@@ -8,7 +8,10 @@ import android.widget.ImageView;
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rahmatantravel.Adapter.DataCustomerAdapter
+import com.example.rahmatantravel.Models.UserData
+import com.example.rahmatantravel.SharedPref.PrefManager
 import com.example.rahmatantravel.api.RetrofitClient
+import com.example.rahmatantravel.api.customerResponse.APICustomer
 import com.example.rahmatantravel.api.customerResponse.CustomerResponse
 import com.example.rahmatantravel.api.customerResponse.DataCustomerResponse
 import retrofit2.Call
@@ -35,32 +38,47 @@ class DataJamaah : AppCompatActivity() {
 
         recyclerView.layoutManager = LinearLayoutManager(this)  // Inisiasi recyclerView
 
+        // Mendapatkan Data User ID
+        val prefManager = PrefManager(this)
+        val loginData = prefManager.getLoginData()
+        val userId = loginData.first ?.toInt()
+
         // Proses eksekusi retrofit
-        RetrofitClient.instance.getProfileCustomer(1).enqueue(object :
-            Callback<List<DataCustomerResponse>> {
-            override fun onResponse(
-                call: Call<List<DataCustomerResponse>>,
-                response: Response<List<DataCustomerResponse>>
-            ) {
-                if (response.isSuccessful) {
-                    val responseBody = response.body()
-                    if (responseBody != null) {
-                        logData("Response Success", responseBody.toString())
+        if (userId != null) {
+            RetrofitClient.instance.getProfileCustomer(userId).enqueue(object :
+                Callback<APICustomer> {
+                override fun onResponse(
+                    call: Call<APICustomer>,
+                    response: Response<APICustomer>
+                ) {
+                    if (response.isSuccessful) {
+                        val responseBody = response.body()
+                        if (responseBody != null) {
+                            logData("Response Success", responseBody.toString())
 
-                        val adapter = DataCustomerAdapter(responseBody)  // Inisiasi adapter
-                        recyclerView.adapter = adapter  // Mengatur adapter untuk recyclerView
+                            // Mengambil data 'nama' dari setiap objek
+                            val namaArray = responseBody.data
 
-                    } else {
-                        logData("Response Body Null", response.message())
+                            // Sekarang 'namaArray' berisi data 'nama' dari setiap objek
+                            logData("Nama Array", namaArray.toString())
+
+                            val adapter = DataCustomerAdapter(namaArray)  // Inisiasi adapter
+                            recyclerView.adapter = adapter  // Mengatur adapter untuk recyclerView
+
+                        } else {
+                            logData("Response Body Null", response.message())
+                        }
+                    }else{
+                        logData("Response Failed", response.message())
                     }
-                }else{
-                    logData("Response Failed", response.message())
                 }
-            }
-            override fun onFailure(call: Call<List<DataCustomerResponse>>, t: Throwable) {
-                logData("Response on Failure", t.message.toString())
-            }
-        })
+                override fun onFailure(call: Call<APICustomer>, t: Throwable) {
+                    logData("Response on Failure", t.message.toString())
+                }
+            })
+        } else {
+            logData("User ID", "User ID not found")
+        }
     }
 
     private fun logData(tag: String, data: String) {

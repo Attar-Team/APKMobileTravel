@@ -28,10 +28,15 @@ import com.example.rahmatantravel.Adapter.PaketHomeAdapter
 import com.example.rahmatantravel.Models.ArtikelModels
 import com.example.rahmatantravel.Models.PaketHomeModels
 import com.example.rahmatantravel.api.RetrofitClient
+import com.example.rahmatantravel.api.artikelResponse.APIArtikel
 import com.example.rahmatantravel.api.paketResponse.APIResponse
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.await
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -40,9 +45,7 @@ class HomeFragmentK : Fragment() {
     private lateinit var artikelRecyclerView: RecyclerView
     private lateinit var paketRecyclerView: RecyclerView
     private lateinit var artikelAdapter: ArtikelAdapter
-    private lateinit var paketAdapter: PaketHomeAdapter
     private lateinit var artikelModelsArrayList: ArrayList<ArtikelModels>
-    private lateinit var paketModelsArrayList: ArrayList<PaketHomeModels>
     private lateinit var menuUmroh: CardView
     private lateinit var menuHaji: CardView
     private lateinit var menuTour: CardView
@@ -77,12 +80,10 @@ class HomeFragmentK : Fragment() {
         SliderAdapter { position, title, _ ->
             onCLick(position, title)
         }
-        addDataArtikel()
+
         artikelRecyclerView = view.findViewById(R.id.recycleViewArtikel)
-        artikelAdapter = ArtikelAdapter(artikelModelsArrayList)
         val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         artikelRecyclerView.layoutManager = layoutManager
-        artikelRecyclerView.adapter = artikelAdapter
 
         paketRecyclerView = view.findViewById(R.id.recycleViewPaket)
         val layoutManager2 = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -94,6 +95,27 @@ class HomeFragmentK : Fragment() {
         dialog.setContentView(R.layout.dialog_loading_home)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
+
+        RetrofitClient.instance.getArtikel().enqueue(object : Callback<APIArtikel>{
+            override fun onResponse(call: Call<APIArtikel>, response: Response<APIArtikel>) {
+                if (response.isSuccessful){
+                    val apiResponse = response.body()
+                    if (apiResponse != null) {
+                        logData("Artikel Success", apiResponse.data.toString())
+                        artikelAdapter = ArtikelAdapter(apiResponse.data)
+                        artikelRecyclerView.adapter = artikelAdapter
+                    }else{
+                        logData("Artikel is null", response.code().toString())
+                    }
+                }else{
+                    logData("Artikel Fail", response.code().toString())
+                }
+            }
+
+            override fun onFailure(call: Call<APIArtikel>, t: Throwable) {
+                logData("Article on Failure", t.message.toString())
+            }
+        })
 
         RetrofitClient.instance.getPaket().enqueue(object : Callback<APIResponse> {
             override fun onResponse(call: Call<APIResponse>, response: Response<APIResponse>) {
@@ -200,6 +222,10 @@ class HomeFragmentK : Fragment() {
         return view
     }
 
+    private fun logData(tag: String, data: String) {
+        Log.d(tag, "$tag: $data")
+    }
+
     private fun updateWaktuSekarang() {
         val currentTime = Date()
         val formattedTime = sdf.format(currentTime)
@@ -208,13 +234,5 @@ class HomeFragmentK : Fragment() {
 
     private fun onCLick(position: Int, title: String) {
         Toast.makeText(requireActivity(), "Position: $position Title: $title", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun addDataArtikel() {
-        artikelModelsArrayList = ArrayList()
-        artikelModelsArrayList.add(ArtikelModels("Jamaah Haji Indonesia tiba di Madinah", "Hari ini jamaah Indonesia tiba di Madinah dengan Selamat Alhamdulillah", "14 November 2023"))
-        artikelModelsArrayList.add(ArtikelModels("Jamaah Kebelet Berak", "Terdapat jamaah kebelat berak di pesawat yang dimana jamaah belum makan", "14 Juli 2023"))
-        artikelModelsArrayList.add(ArtikelModels("Jamaah Menangis Tersedu Sedu", "Beberapa jamaah menangis bahagia karena impiannya untuk umroh terwujudkan", "14 September 2023"))
-        artikelModelsArrayList.add(ArtikelModels("Covid Melanda", "Hari ini covid", "14 Januari 2023"))
     }
 }

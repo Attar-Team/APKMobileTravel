@@ -3,14 +3,17 @@ package com.example.rahmatantravel
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.bumptech.glide.Glide
 import com.example.rahmatantravel.api.RetrofitClient
 import com.example.rahmatantravel.api.paketResponse.APIResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -26,7 +29,8 @@ class DetailPaket : AppCompatActivity() {
     private lateinit var tidakTermasukHarga: TextView
     private lateinit var bottomViewHarga: TextView
     private lateinit var btn_booking: CardView
-
+    private lateinit var imagePaket: ImageView
+    private lateinit var jumlahKursi : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,21 +45,25 @@ class DetailPaket : AppCompatActivity() {
 
         btn_booking.setOnClickListener {
             val intent = Intent(this, DetailBooking::class.java)
+            intent.putExtra("paket_id", paketId.toString())
             startActivity(intent)
         }
+
         RetrofitClient.instance.getPaketById(paketId).enqueue(object : Callback<APIResponse> {
             override fun onResponse(call: Call<APIResponse>, response: Response<APIResponse>) {
                 if (response.isSuccessful) {
                     val apiResponse = response.body()
                     apiResponse?.let { displayPaketDetails(it) }
+
+                    Log.d("Response Success", "onResponse: $apiResponse")
                 } else {
                     val errorBody = response.errorBody()?.string()
-                    Log.e("Error body", "onResponse: Error Body: $errorBody")
+
+                    Log.e("Response Failed", "onResponse: Error Body: $errorBody")
                 }
             }
-
             override fun onFailure(call: Call<APIResponse>, t: Throwable) {
-                Log.e("API Call", "Failed: ${t.message}")
+                Log.e("Response On Failure", "Failed: ${t.message}")
             }
         })
     }
@@ -69,10 +77,13 @@ class DetailPaket : AppCompatActivity() {
         termasukHarga = findViewById(R.id.termasukHarga)
         tidakTermasukHarga = findViewById(R.id.tidaktermasukHarga)
         bottomViewHarga = findViewById(R.id.bottomTextHargaMulai)
+        imagePaket = findViewById(R.id.imagebg)
+        jumlahKursi = findViewById(R.id.jumlahKursi)
     }
 
     private fun displayPaketDetails(apiResponse: APIResponse) {
         val paket = apiResponse.data[0].paket[0]
+        val kursi = apiResponse.data[0].seats
 
         val formattedDate = formatDate(apiResponse.data[0].tanggal)
 
@@ -90,11 +101,18 @@ class DetailPaket : AppCompatActivity() {
         val tidakTermasukHargaFormatted = paket.tidak_termasuk_harga.joinToString(separator = "\n • ", prefix = "Harga Tidak termasuk :\n • ")
         tidakTermasukHarga.text = tidakTermasukHargaFormatted
 
+        val formattedHarga = formatCurrency(hargaTerkecil ?: 0)
+
         hargaTerkecil?.let {
-            bottomViewHarga.text = "Rp $it"
+            bottomViewHarga.text = formattedHarga
         } ?: run {
             bottomViewHarga.text = "Tidak ada harga tersedia"
         }
+
+        Glide.with(this).load("https://rahmatanumrah.000webhostapp.com/uploads/foto_brosur/${paket.foto_paket}").into(imagePaket)
+
+        val kursiTerisi = "Tesedia ${kursi} Kursi"
+        jumlahKursi.text = kursiTerisi
     }
 
     private fun formatDate(inputDate: String): String {
@@ -106,7 +124,16 @@ class DetailPaket : AppCompatActivity() {
 
     private fun formatHargaText(dp: Int, hargaTerkecil: Int?): String {
         return hargaTerkecil?.let {
-            "Harga paket mulai dari Rp $it\nDp mulai dari Rp $dp"
+            // Format harga menggunakan formatCurrency
+            val hargaFormatted = formatCurrency(it)
+            val dpFomatted = formatCurrency(dp)
+
+            // Kembalikan string yang sudah diformat
+            return "Harga paket mulai dari $hargaFormatted\nDp mulai dari $dpFomatted"
         } ?: "Tidak ada harga tersedia"
+    }
+    fun formatCurrency(number: Int): String {
+        val format = NumberFormat.getCurrencyInstance(Locale("id", "ID")) // Locale untuk Indonesia
+        return format.format(number)
     }
 }

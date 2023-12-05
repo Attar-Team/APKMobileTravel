@@ -104,32 +104,7 @@
             android:textSize="15sp"
             android:text="riskyasyam@gmail.com"/>
     </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nomer Hp"
-        android:fontFamily="@font/poppinssemibold"
-        android:textColor="@color/black"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:textSize="17sp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/bgcard3"
-        android:gravity="center_vertical"
-        android:layout_marginHorizontal="15dp">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:background="@null"
-            android:inputType="text"
-            android:fontFamily="@font/poppinslight"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:text="089652633339"/>
-    </LinearLayout>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

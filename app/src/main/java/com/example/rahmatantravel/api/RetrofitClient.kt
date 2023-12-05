@@ -15,7 +15,7 @@ object RetrofitClient {
     val instance: API by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
         retrofit.create(API::class.java)

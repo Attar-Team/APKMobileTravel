@@ -17,15 +17,14 @@ public class TentangActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tentang);
-        initializeUI();
 
-//        CardView maps = findViewById(R.id.maps);
-//        maps.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                openGoogleMaps();
-//            }
-//        });
+        CardView maps = findViewById(R.id.maps);
+        maps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openGoogleMaps();
+            }
+        });
 
         ImageView backToMenuLainnya = findViewById(R.id.backToMenuLainnya);
         CardView cardWa = findViewById(R.id.cardWa);
@@ -59,12 +58,6 @@ public class TentangActivity extends AppCompatActivity {
         });
     }
 
-    private void initializeUI(){
-        String iframe = "<iframe src=https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d434549.40374533384!2d74.24349628287739!3d31.690830957117996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sPakistan+Lahore!5e0!3m2!1sen!2s!4v1395138949280 width=600 height=450 frameborder=0 style=border:0</iframe>";
-        googleMapWebView = (WebView) findViewById(R.id.googlemap_webView);
-        googleMapWebView.getSettings().setJavaScriptEnabled(true);
-        googleMapWebView.loadData(iframe,"text/html","utf-8");
-    }
     private void openGoogleMaps(){
         Uri gmmIntentUri = Uri.parse("https://maps.app.goo.gl/qKqw2AY8Ya1nTFCP8");
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);

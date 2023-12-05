@@ -4,6 +4,7 @@ import android.os.Handler
 import android.os.Looper
 import com.example.rahmatantravel.MainActivity
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okio.BufferedSink
 import java.io.File
@@ -20,7 +21,7 @@ class UploadRequestBody(
     }
 
     override fun contentType(): MediaType? {
-        return MediaType.parse("$contentType/*")
+        return "$contentType/*".toMediaTypeOrNull()
     }
 
     override fun contentLength(): Long {

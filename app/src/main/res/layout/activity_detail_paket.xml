@@ -24,7 +24,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/brosurpaket"
-                    android:scaleType="fitXY" />
+                    android:scaleType="centerCrop" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/buttonkemabli"
@@ -341,105 +341,6 @@
                 android:fontFamily="@font/poppinsmedium"
                 android:textSize="13dp"
                 android:textColor="#FF0000"/>
-            <TextView
-                android:id="@+id/pembimbing"
-                android:layout_marginTop="14dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pembimbing Jamaah :\n
- • Seo Joon"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:fontFamily="@font/poppinsmedium"
-                android:textSize="13dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Rekening Transfer"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:fontFamily="@font/poppingbold"
-                android:textSize="15dp"
-                android:textColor="@color/black"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black"
-                android:alpha="0.3"
-                android:layout_marginTop="10dp"/>
-
-            <LinearLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="81dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:gravity="start"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <LinearLayout
-
-                        android:layout_width="60dp"
-                        android:gravity="start"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:layout_gravity="center|center_horizontal"
-                            android:src="@drawable/iconbankbsi" />
-
-                        <TextView
-                            android:layout_marginTop="13dp"
-                            android:layout_width="wrap_content"
-                            android:layout_gravity="center|center_horizontal"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/poppinsmedium"
-                            android:text="BSI(IDR)" />
-                    </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/poppinsmedium"
-                        android:text="PT RAHMATAN" />
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="end"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/poppinsmedium"
-                            android:text="71312314123" />
-                        <ImageView
-                            android:layout_width="17dp"
-                            android:layout_height="17dp"
-                            android:layout_gravity="center"
-                            android:backgroundTint="@color/black"
-                            android:src="@drawable/iconsalin"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -485,6 +386,7 @@
                             android:textSize="20dp" />
 
                         <TextView
+                            android:id="@+id/jumlahKursi"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"

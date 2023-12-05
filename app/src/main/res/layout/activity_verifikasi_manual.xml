@@ -53,80 +53,112 @@
         android:layout_marginHorizontal="20dp"
         app:cardCornerRadius="20dp"
         android:elevation="10dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bank Tujuan"
                 android:fontFamily="@font/poppinssemibold"
-                android:textColor="@color/black"/>
+                android:text="Bank Tujuan"
+                android:textColor="@color/black" />
+
             <EditText
                 android:id="@+id/edt_banktujuan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="BSI(IDR) PT RAHMATAN TRAVEL"
+                android:editable="false"
                 android:fontFamily="@font/poppinsmedium"
+                android:text="BSI A.T. PT RAHMATAN TRAVEL"
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nominal Pembayaran"
+                android:fontFamily="@font/poppinssemibold"
+                android:text="Nomor Rekening"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/edt_norek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:fontFamily="@font/poppinsmedium"
+                android:text="12121212121112"
                 android:textColor="@color/black"
-                android:fontFamily="@font/poppinssemibold"/>
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinssemibold"
+                android:text="Nominal Pembayaran"
+                android:textColor="@color/black" />
+
             <EditText
                 android:id="@+id/edt_nominal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rp31.000.000"
+                android:editable="false"
                 android:fontFamily="@font/poppinsmedium"
+                android:text="Rp31.000.000"
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
             <EditText
                 android:id="@+id/edt_catatan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Catatan"
                 android:fontFamily="@font/poppinsmedium"
+                android:hint="catatan"
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Upload Bukti Pembayaran"
                 android:fontFamily="@font/poppinssemibold"
-                android:textColor="@color/black"/>
+                android:text="Upload Bukti Pembayaran"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/black" />
+
             <ImageView
                 android:id="@+id/fotoBukti"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/imagenotfound"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:src="@drawable/imagenotfound" />
+
             <TextView
+                android:id="@+id/uploadFoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppinsmedium"
                 android:text="Upload Foto"
-                android:textColor="@color/red"
-                android:fontFamily="@font/poppinsmedium"
-                android:layout_gravity="center"/>
+                android:textColor="@color/red" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tanggal Pembayaran"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppinsmedium"
-                android:textColor="@color/black"
-                android:layout_marginTop="20dp"/>
+                android:text="Tanggal Pembayaran"
+                android:textColor="@color/black" />
+
             <TextView
                 android:id="@+id/tglPembayaran"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="13 September 2023"
                 android:fontFamily="@font/poppinsmedium"
-                android:textColor="@color/black"/>
+                android:text="13 September 2023"
+                android:textColor="@color/black" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView

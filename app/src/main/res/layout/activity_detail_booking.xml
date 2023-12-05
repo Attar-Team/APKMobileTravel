@@ -8,10 +8,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <RelativeLayout
                 android:id="@+id/relativeLayout"
                 android:layout_width="match_parent"
@@ -38,127 +40,145 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Detail Paket"
-                android:fontFamily="@font/poppinssemibold"
-                android:textSize="16dp"
-                android:textColor="@color/black"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:text="Detail Paket"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardUseCompatPadding="true"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="5dp">
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:padding="10dp">
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="130dp"
                         android:layout_height="150dp"
                         app:cardCornerRadius="10dp"
                         app:cardUseCompatPadding="true">
+
                         <ImageView
+                            android:id="@+id/imgPaket"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/brosurpaket"
-                            android:scaleType="centerCrop"/>
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/brosurpaket" />
                     </androidx.cardview.widget.CardView>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingVertical="5dp"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="5dp">
+                        android:layout_marginLeft="5dp"
+                        android:orientation="vertical"
+                        android:paddingVertical="5dp">
+
                         <TextView
                             android:id="@+id/judulPaket"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Paket Umroh 28 November 2023"
                             android:fontFamily="@font/poppingbold"
-                            android:textColor="@color/black"/>
+                            android:text="Paket Umroh 28 November 2023"
+                            android:textColor="@color/black" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
+
                             <ImageView
                                 android:layout_width="15dp"
                                 android:layout_height="15dp"
-                                android:src="@drawable/iconcalender"
-                                android:layout_gravity="center"/>
+                                android:layout_gravity="center"
+                                android:src="@drawable/iconcalender" />
+
                             <TextView
                                 android:id="@+id/tanggalBerangkat"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="28 November 2023"
-                                android:textSize="8sp"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/poppinslight"
                                 android:layout_gravity="center"
-                                android:layout_marginLeft="5dp"/>
+                                android:layout_marginLeft="5dp"
+                                android:fontFamily="@font/poppinslight"
+                                android:text="28 November 2023"
+                                android:textColor="@color/black"
+                                android:textSize="8sp" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginVertical="5dp">
+                            android:layout_marginVertical="5dp"
+                            android:orientation="horizontal">
+
                             <ImageView
                                 android:layout_width="15dp"
                                 android:layout_height="15dp"
-                                android:src="@drawable/iconjam"
-                                android:layout_gravity="center"/>
+                                android:layout_gravity="center"
+                                android:src="@drawable/iconjam" />
+
                             <TextView
                                 android:id="@+id/waktuPaket"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="12 Hari"
-                                android:textSize="8sp"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/poppinslight"
                                 android:layout_gravity="center"
-                                android:layout_marginLeft="5dp"/>
+                                android:layout_marginLeft="5dp"
+                                android:fontFamily="@font/poppinslight"
+                                android:text="12 Hari"
+                                android:textColor="@color/black"
+                                android:textSize="8sp" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
+
                             <ImageView
                                 android:layout_width="15dp"
                                 android:layout_height="15dp"
-                                android:src="@drawable/iconhotel"
-                                android:layout_gravity="center"/>
+                                android:layout_gravity="center"
+                                android:src="@drawable/iconhotel" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="⭐"
-                                android:textSize="8sp"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/poppinslight"
                                 android:layout_gravity="center"
-                                android:layout_marginLeft="5dp"/>
+                                android:layout_marginLeft="5dp"
+                                android:fontFamily="@font/poppinslight"
+                                android:text="⭐"
+                                android:textColor="@color/black"
+                                android:textSize="8sp" />
+
                             <TextView
                                 android:id="@+id/rateHotel"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="5"
-                                android:textSize="8sp"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/poppinslight"
+                                android:layout_height="15dp"
                                 android:layout_gravity="center"
-                                android:layout_marginLeft="5dp"/>
+                                android:layout_marginLeft="5dp"
+                                android:fontFamily="@font/poppinslight"
+                                android:text="5"
+                                android:textColor="@color/black"
+                                android:textSize="8sp" />
                         </LinearLayout>
+
                         <TextView
                             android:id="@+id/hargaPaket"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Rp30.000.000"
-                            android:textSize="10sp"
+                            android:layout_marginTop="5dp"
                             android:fontFamily="@font/poppinssemibold"
+                            android:text="Rp30.000.000"
                             android:textColor="@color/red"
-                            android:layout_marginTop="5dp"/>
+                            android:textSize="10sp" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -167,103 +187,157 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Detail Jamaah"
-                    android:fontFamily="@font/poppinssemibold"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
                     android:layout_gravity="center"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:text="Detail Jamaah"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
                 <ImageView
                     android:id="@+id/btn_add"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/baseline_add_24"/>
+                    android:src="@drawable/baseline_add_24" />
 
             </LinearLayout>
+
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleDetailJamaah"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/recycleDetailJamaah"/>
+                android:layout_height="wrap_content" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kode Referral Agen"
-                android:fontFamily="@font/poppinssemibold"
-                android:textSize="16sp"
-                android:textColor="@color/black"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="20dp"/>
+                android:fontFamily="@font/poppinssemibold"
+                android:text="Kode Referral Agen"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="20dp"
                 android:background="@color/abuabu"
-                android:layout_marginHorizontal="20dp">
+                app:cardCornerRadius="10dp">
+
                 <EditText
+                    android:id="@+id/edt_kodereferal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
                     android:background="@android:color/transparent"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:hint="Masukkan kode referral Agen disini"
                     android:padding="10dp"
-                    android:hint="Masukkan kode referral Agen disini"/>
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
             </androidx.cardview.widget.CardView>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rincian Biaya"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/poppinssemibold"
+                android:text="Catatan Pemesanan"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:layout_marginTop="20dp"/>
+                android:textSize="16sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:background="@color/abuabu"
+                app:cardCornerRadius="10dp">
+
+                <EditText
+                    android:id="@+id/edt_catatanPemesanan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:hint="Catatan"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:text="Rincian Biaya"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginHorizontal="20dp">
+                android:layout_marginHorizontal="20dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppinsmedium"
                     android:text="Total Biaya"
-                    android:fontFamily="@font/poppinsmedium"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:layout_weight="1"/>
+                    android:textSize="15sp" />
+
                 <TextView
+                    android:id="@+id/textViewTotalHarga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp-"
                     android:fontFamily="@font/poppinsmedium"
+                    android:text="Rp-"
                     android:textColor="@color/black"
-                    android:textSize="15sp"/>
+                    android:textSize="15sp" />
             </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="11sp"
+                android:layout_marginLeft="20dp"
                 android:fontFamily="@font/poppinsmedium"
                 android:text="*Harga sudah termasuk lain - lain termasuk harga kurs saat ini"
-                android:layout_marginLeft="20dp"/>
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btn_checkTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/redOrange"
+                android:fontFamily="@font/poppinssemibold"
+                android:text="Cek Total tagihan"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/btn_booking"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/white"
-                android:text="Booking"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/redOrange"
                 android:fontFamily="@font/poppinssemibold"
-                android:textSize="12sp"
-                android:backgroundTint="@color/redOrange"/>
+                android:text="Booking"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

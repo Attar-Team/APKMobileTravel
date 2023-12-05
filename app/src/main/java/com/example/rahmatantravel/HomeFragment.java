@@ -129,17 +129,6 @@ public class HomeFragment extends Fragment {
         new SliderAdapter(this::onCLick);
 
 
-        addDataArtikel();
-        artikelRecyclerView = (RecyclerView) view.findViewById(R.id.recycleViewArtikel);
-        artikelAdapter = new ArtikelAdapter(artikelModelsArrayList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false);
-//        artikelRecyclerView.setNestedScrollingEnabled(true);
-
-        if (artikelAdapter == null){
-            artikelAdapter = new ArtikelAdapter(artikelModelsArrayList);
-        }
-        artikelRecyclerView.setLayoutManager(layoutManager);
-        artikelRecyclerView.setAdapter(artikelAdapter);
 
         addDataPaket();
         paketRecyclerView = (RecyclerView) view.findViewById(R.id.recycleViewPaket);

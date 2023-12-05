@@ -1,7 +1,9 @@
 package com.example.rahmatantravel.Models
 
 import android.net.Uri
+import android.util.Log
 import androidx.lifecycle.ViewModel
+import okhttp3.RequestBody
 
 class SharedViewModel : ViewModel() {
     private var selectedImageUri: Uri? = null
@@ -12,6 +14,7 @@ class SharedViewModel : ViewModel() {
     private var selectedImageBukuPernikahan: Uri? = null
     private var selectedImagePaspor1: Uri? = null
     private var selectedImagePaspor2: Uri? = null
+    private var selectedImageBuktiPembayaran: Uri? = null
 
     fun getSelectedImageUri(): Uri? {
         return selectedImageUri
@@ -76,4 +79,13 @@ class SharedViewModel : ViewModel() {
     fun setSelectedImagePaspor2(uri: Uri?) {
         selectedImagePaspor2 = uri
     }
+
+    fun getSelectedImageBuktiPembayaran(): Uri? {
+        return selectedImageBuktiPembayaran
+    }
+
+    fun setSelectedImageBuktiPembayaran(uri: Uri?) {
+        selectedImageBuktiPembayaran = uri
+    }
+
 }

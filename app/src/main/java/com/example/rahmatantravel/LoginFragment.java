@@ -95,11 +95,11 @@ public class LoginFragment extends Fragment {
             public void onResponse(@NonNull Call<UserPostResponse> call, @NonNull Response<UserPostResponse> response) {
                 if (response.isSuccessful()) {
                     UserPostResponse userPostResponse = response.body();
-                    if (userPostResponse != null && userPostResponse.getStatus().equals("success")) {
+                    if (userPostResponse != null && userPostResponse.getStatus() == 200) {
 
                         System.out.println("Request successful. Response: " + email);
                         System.out.println("Request successful. Response: " + password);
-                        System.out.println("Request successful. Response: " + userPostResponse.getResponse());
+                        System.out.println("Request successful. Response: " + userPostResponse.getMessage());
 
                         showDialogSuccess();
 
