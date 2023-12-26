@@ -3,6 +3,7 @@
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
+    <color name="birumuda">#5FA8FF</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
@@ -20,6 +21,7 @@
     <color name="orangeWarmYellow">#FFFFAD00</color>
     <color name="red">#FF0000</color>
     <color name="abuabu">#808080</color>
+    <color name="abuabumuda">#F1F1F1</color>
     <color name="hijau">#32CD32</color>
     <color name="redOrange">#FF3500</color>
     <color name="orangeTua">#CE1212</color>
