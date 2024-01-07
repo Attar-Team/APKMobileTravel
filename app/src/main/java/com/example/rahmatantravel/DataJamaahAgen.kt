@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Window
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -55,7 +56,10 @@ class DataJamaahAgen : AppCompatActivity() {
                             val jumlahPemesananString = jumlahPemesanan.toString()
                             jumlahTransaksi.text = jumlahPemesananString
 
-                            val adapter = DataJamaahAgenAdapter(responseBody.data)
+                            val adapter = DataJamaahAgenAdapter(responseBody.data) { clickedItem ->
+                                
+                                Toast.makeText(this@DataJamaahAgen, "Item ${clickedItem.namaCustomer} diklik", Toast.LENGTH_SHORT).show()
+                            }
                             recyclerView.adapter = adapter
                             LinearLayoutManager(this@DataJamaahAgen).also { recyclerView.layoutManager = it }
                         } else {
