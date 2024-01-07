@@ -12,6 +12,7 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.lottie.L
 import com.example.rahmatantravel.Models.DetailJamaahModels
@@ -54,6 +55,7 @@ class DetailJamaahAdapter(
         val urutanData: TextView = itemView.findViewById(R.id.urutanData)
         val autoComplete: AutoCompleteTextView = itemView.findViewById(R.id.autoComplete)
         val radioHarga: RadioGroup = itemView.findViewById(R.id.radioHarga)
+        val buttonHapus: CardView = itemView.findViewById(R.id.buttonHapus)
 
         // Fungsi untuk mengikat data ke tampilan
         fun bind(detailJamaah: DetailJamaahModels, namaJamaah: List<String>, nikJamaah: List<String>) {
@@ -68,7 +70,6 @@ class DetailJamaahAdapter(
             autoComplete.setOnItemClickListener { _, _, position1, _ ->
                 val selectedItem = nikJamaah[position1]
                 val selectedNik = mapNamaNik[selectedItem]
-                Toast.makeText(context, "Anda memilih: $selectedItem dengan NIK: $selectedNik", Toast.LENGTH_SHORT).show()
                 detailJamaah.autoCompleteTextView = selectedItem
 
                 val indexToUpdate = detailJamaah.urutanData - 1
@@ -84,6 +85,21 @@ class DetailJamaahAdapter(
 
             // Menampilkan rincian paket dengan menggunakan data dari APIResponse
             displayPaketDetails(hargaPaketResponseList, detailJamaah.urutanData)
+
+            if (dataList.size == 1) {
+                buttonHapus.visibility = View.GONE
+            } else {
+                buttonHapus.setOnClickListener {
+                    onDeleteButtonClick(detailJamaah.urutanData - 1)
+                }
+            }
+        }
+
+        // Metode untuk menghapus item
+        fun onDeleteButtonClick(position: Int) {
+            dataList.removeAt(position)
+            notifyItemRemoved(position)
+            notifyItemRangeChanged(position, itemCount)
         }
 
         // Fungsi untuk menampilkan rincian paket pada RadioGroup
@@ -113,11 +129,6 @@ class DetailJamaahAdapter(
         // Fungsi untuk menangani logika saat RadioButton dipilih
         private fun handleRadioButtonSelection(paket: PaketResponse, harga: HargaPaketResponse, index: Int) {
             val selectedHargaPaket = Pair(paket, harga)
-            Toast.makeText(
-                context,
-                "Anda memilih: ${selectedHargaPaket.second.harga} dengan ID ${selectedHargaPaket.second.hargaPaketId}",
-                Toast.LENGTH_SHORT
-            ).show()
 
             // Memanggil fungsi untuk memperbarui selectedHargaArray
             updateIntArrayAtIndex(selectedHargaArray, index - 1, selectedHargaPaket.second.harga)
@@ -155,9 +166,6 @@ class DetailJamaahAdapter(
             // Log untuk debugging
             Log.d("Updated Array", array.toString())
         }
-
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailJamaahViewHolder {

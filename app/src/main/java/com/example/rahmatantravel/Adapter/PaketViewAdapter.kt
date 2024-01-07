@@ -35,11 +35,12 @@ class PaketViewAdapter (private val keberangkatanResponse: List<KeberangkatanRes
                 val tanggalPaketFormatted = formatDate(keberangkatanResponse.tanggal)
 
                 val harga = formatCurrency(paketResponse.harga[0].harga)
+                val status = keberangkatanResponse.status
 
                 judulPaket.text = paketResponse.nama_paket
                 tanggalBerangkat.text = tanggalPaketFormatted
                 waktuPaket.text = paketResponse.lama_hari.toString()
-                rateHotel.text = hotelResponse.bintang.toString()
+                rateHotel.text = status
                 hargaPaket.text = "Mulai dari $harga"
 
                 Glide.with(itemView.context)

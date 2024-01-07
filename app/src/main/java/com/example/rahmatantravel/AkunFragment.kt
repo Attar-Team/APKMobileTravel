@@ -5,15 +5,22 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.example.rahmatantravel.Models.SharedViewModel
 import com.example.rahmatantravel.SharedPref.PrefManager
 
 class AkunFragment : Fragment() {
+
+    private lateinit var sharedViewModel: SharedViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,14 +33,33 @@ class AkunFragment : Fragment() {
         val logoutButton = view.findViewById<TextView>(R.id.logout)
         val namaJamaah = view.findViewById<TextView>(R.id.NamaJamaah)
         val bantuan = view.findViewById<LinearLayout>(R.id.pusatBantuan)
+        val imageProfile = view.findViewById<ImageView>(R.id.imageProfil)
+        val cardAgen = view.findViewById<CardView>(R.id.cardAgen)
+        val pusatAgen = view.findViewById<LinearLayout>(R.id.pusatAgen)
 
         val prefManager = PrefManager(requireContext())
+
+        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+
+        val image = sharedViewModel.getProfileImageUri()
+        Log.d("image", image.toString())
+        if (image != null) {
+            imageProfile.setImageURI(image)
+        }
+
+        cardAgen.visibility = View.GONE
 
         prefManager.getUserName().let {
             namaJamaah.text = it.toString()
         }
 
-        val phoneNumber = "+6282244912180"
+        prefManager.getLoginData().let {
+            if (it.third == "agen") {
+                cardAgen.visibility = View.VISIBLE
+            }
+        }
+
+        val phoneNumber = "+62895366960593"
         val url = "https://wa.me/$phoneNumber"
 
         bantuan.setOnClickListener {
@@ -73,6 +99,11 @@ class AkunFragment : Fragment() {
                     dialog.dismiss()
                 })
                 .show()
+        }
+
+        pusatAgen.setOnClickListener {
+            val intent = Intent(activity, PusatAgen::class.java)
+            startActivity(intent)
         }
 
         return view

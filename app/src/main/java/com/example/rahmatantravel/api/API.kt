@@ -83,4 +83,10 @@ interface API {
     @GET("apiGetArtikel")
     fun getArtikel(): Call<APIArtikel>
 
+    @GET("apiGetPemesananInvitAgen/{id}")
+    fun getPemesananInvitAgen(@Path("id") id: Int): Call<PesananAgenResponse>
+
+    @GET("apiCheckReferal/{id}")
+    fun getCheckReferal(@Path("id") id: String): Call<CheckReferalResponse>
+
 }

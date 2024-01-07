@@ -16,6 +16,7 @@ import android.widget.Toast
 import com.example.rahmatantravel.Adapter.DetailJamaahAdapter;
 import com.example.rahmatantravel.Models.DetailJamaahModels;
 import com.example.rahmatantravel.SharedPref.PrefManager
+import com.example.rahmatantravel.api.CheckReferalResponse
 import com.example.rahmatantravel.api.RetrofitClient
 import com.example.rahmatantravel.api.customerResponse.DataCustomerResponse
 import com.example.rahmatantravel.api.paketResponse.APIResponse
@@ -52,6 +53,8 @@ class DetailBooking : AppCompatActivity() {
     private lateinit var btnAdd: ImageView
     private lateinit var btnBooking: Button
 
+    var keberangkatan_ID : String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_booking)
@@ -59,6 +62,7 @@ class DetailBooking : AppCompatActivity() {
         initializeViews()
         setupListeners()
         fetchData()
+
     }
 
     // Inisialisasi tampilan dengan menggunakan findViewById
@@ -79,12 +83,69 @@ class DetailBooking : AppCompatActivity() {
     }
 
     private fun setupListeners() {
+
+        var agenID: String = ""
+
+        // Menyiapkan listener untuk tombol check
+        btnCheck.setOnClickListener {
+            val total = detailJamaahAdapter.getTotalHarga()
+            val totalFormatted = formatCurrency(total)
+            totalHarga.text = totalFormatted
+
+            val NamaNIK : Map<String, String> = detailJamaahAdapter.mapNamaNIK()
+            logData("NIK Nama", NamaNIK.toString())
+            logData("NIK Nama", NamaNIK.keys.toString())
+            logData("NIK Nama", NamaNIK.values.toString())
+
+            val IDHarga : Map<String, Int> = detailJamaahAdapter.mapIDHarga()
+            logData("ID Harga", IDHarga.toString())
+            logData("ID Harga", IDHarga.keys.toString())
+            logData("ID Harga", IDHarga.values.toString())
+
+            val kodeReferalValue = kodeReferal.text.toString()
+
+            if (kodeReferalValue.isNotEmpty()) {
+                RetrofitClient.instance.getCheckReferal(kodeReferalValue).enqueue(object : Callback<CheckReferalResponse>{
+                    override fun onResponse(
+                        call: Call<CheckReferalResponse>,
+                        response: Response<CheckReferalResponse>
+                    ) {
+                        if (response.isSuccessful){
+                            val responseBody = response.body()
+                            if (responseBody != null){
+                                logData("Response Success", responseBody.message)
+                                val data = responseBody.data
+                                agenID = data.nik
+                                logData("User ID", agenID)
+                            } else {
+                                logData("Response body is null", response.message())
+                            }
+                        } else {
+                            logData("Response Failed", response.message())
+                        }
+                    }
+
+                    override fun onFailure(call: Call<CheckReferalResponse>, t: Throwable) {
+                        logData("Response on Failure", t.message.toString())
+                    }
+                })
+            } else {
+                logData("Kode referal is empty", kodeReferalValue)
+                agenID = "0"
+            }
+        }
+
         // Menyiapkan listener untuk tombol booking
         btnBooking.setOnClickListener {
             val extras = Bundle()
 
-            extras.putString("KodeReferal", kodeReferal.text.toString())
+            keberangkatan_ID = intent.getStringExtra("keberangkatan_id").toString()
+            logData("keberngkatan_id", keberangkatan_ID)
+
             extras.putString("CatatanPemesanan", catatanPemesanan.text.toString())
+            extras.putString("Keberangkatan_ID", keberangkatan_ID)
+            extras.putString("AgenID", agenID)
+            logData("Agen ID", agenID)
 
             val total = detailJamaahAdapter.getTotalHarga()
             logData("Total Harga", total.toString())
@@ -123,23 +184,6 @@ class DetailBooking : AppCompatActivity() {
             detailJamaahModelsArrayList.add(newDetailJamaah)
             detailJamaahAdapter.notifyItemInserted(itemCount)
             recycleDetailJamaah.smoothScrollToPosition(itemCount)
-        }
-
-        // Menyiapkan listener untuk tombol check
-        btnCheck.setOnClickListener {
-            val total = detailJamaahAdapter.getTotalHarga()
-            val totalFormatted = formatCurrency(total)
-            totalHarga.text = "$totalFormatted"
-
-            val NamaNIK : Map<String, String> = detailJamaahAdapter.mapNamaNIK()
-            logData("NIK Nama", NamaNIK.toString())
-            logData("NIK Nama", NamaNIK.keys.toString())
-            logData("NIK Nama", NamaNIK.values.toString())
-
-            val IDHarga : Map<String, Int> = detailJamaahAdapter.mapIDHarga()
-            logData("ID Harga", IDHarga.toString())
-            logData("ID Harga", IDHarga.keys.toString())
-            logData("ID Harga", IDHarga.values.toString())
         }
 
         // Menyiapkan listener untuk tombol back

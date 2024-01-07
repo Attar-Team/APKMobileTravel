@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/main_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,10 +12,12 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:scrollbars="none">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="340dp">
@@ -23,8 +26,8 @@
                     android:id="@+id/imagebg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/brosurpaket"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/brosurpaket" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/buttonkemabli"
@@ -32,15 +35,15 @@
                     android:layout_height="30dp"
                     android:layout_marginLeft="12dp"
                     android:layout_marginTop="12dp"
-                    app:cardCornerRadius="27.5dp"
                     android:alpha="0.5"
-                    android:backgroundTint="@color/black">
+                    android:backgroundTint="@color/black"
+                    app:cardCornerRadius="27.5dp">
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/iconpanahkekiri"
                         android:layout_gravity="center"
+                        android:src="@drawable/iconpanahkekiri"
                         app:tint="@color/white">
 
                     </ImageView>
@@ -52,23 +55,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="85dp"
-                android:orientation="horizontal"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/judulPaket"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
-                    android:text="PAKET UMROH 29 AGUSTUS 2023"
                     android:fontFamily="@font/poppingbold"
-                    android:textSize="26dp"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/iconsimpan"/>
+                    android:text="PAKET UMROH 29 AGUSTUS 2023"
+                    android:textColor="@color/black"
+                    android:textSize="26dp" />
 
             </LinearLayout>
 
@@ -78,239 +77,137 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/iconcalender"/>
+                    android:src="@drawable/iconcalender" />
+
                 <TextView
                     android:id="@+id/tanggalPaket"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:gravity="center"
                     android:layout_marginLeft="10dp"
-                    android:text="29 Agustus 2023"
-
                     android:fontFamily="@font/poppinsmedium"
-                    android:textColor="@color/black"/>
+                    android:gravity="center"
+
+                    android:text="29 Agustus 2023"
+                    android:textColor="@color/black" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="7dp"
+                android:layout_marginRight="10dp"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/iconjam"/>
+                    android:src="@drawable/iconjam" />
+
                 <TextView
                     android:id="@+id/lamaHari"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_marginLeft="10dp"
                     android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/poppinsmedium"
                     android:gravity="center"
                     android:text="13 Hari"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:textColor="@color/black"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="7dp"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/iconsenang"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginLeft="10dp"
-                    android:src="@drawable/iconbintang"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginLeft="1dp"
-                    android:src="@drawable/iconbintang"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginLeft="1dp"
-                    android:src="@drawable/iconbintang"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginLeft="1dp"
-                    android:src="@drawable/iconbintang"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginLeft="1dp"
-                    android:src="@drawable/iconbintang"/>
+                    android:textColor="@color/black" />
 
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/black"
+                android:layout_marginTop="10dp"
                 android:alpha="0.3"
-                android:layout_marginTop="10dp"/>
+                android:background="@color/black" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Deskripsi"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:fontFamily="@font/poppingbold"
-                android:textSize="15dp"
-                android:textColor="@color/black"/>
+                android:text="Deskripsi"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
             <TextView
                 android:id="@+id/deskripsi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Umroh 29 Agustus 2023"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:fontFamily="@font/poppinsmedium"
-                android:textSize="13dp"
-                android:textColor="@color/black"/>
+                android:text="Umroh 29 Agustus 2023"
+                android:textColor="@color/black"
+                android:textSize="13dp" />
+
             <TextView
                 android:id="@+id/lamaProgram"
-                android:layout_marginTop="14dp"
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/poppinsmedium"
                 android:text="Program 13 Hari"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:fontFamily="@font/poppinsmedium"
-                android:textSize="13dp"
-                android:textColor="@color/black"/>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/iconplane"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="17dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="Saudi Airlanes"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="13dp" />
 
-            </LinearLayout>
+
+
             <TextView
-                android:layout_marginTop="14dp"
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
-                android:text="Hotel"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="14dp"
                 android:layout_marginRight="10dp"
                 android:fontFamily="@font/poppinsmedium"
-                android:textSize="13dp"
-                android:textColor="@color/black"/>
+                android:text="Hotel"
+                android:textColor="@color/black"
+                android:textSize="13dp" />
+
             <LinearLayout
+                android:id="@+id/hotel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/iconhotel"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="17dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="Saudi Airlanes"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:textColor="@color/black"/>
-                <ImageView
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
-                    android:src="@drawable/iconbintang"
-                    android:layout_marginLeft="13dp"
-                    android:layout_gravity="center_vertical"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="17dp"
-                    android:layout_marginTop="3dp"
-                    android:text="5"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:textColor="@color/black"/>
+                android:orientation="vertical">
+
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="10dp"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/iconhotel"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="17dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="Saudi Airlanes"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:textColor="@color/black"/>
-                <ImageView
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
-                    android:src="@drawable/iconbintang"
-                    android:layout_marginLeft="13dp"
-                    android:layout_gravity="center_vertical"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="17dp"
-                    android:layout_marginTop="3dp"
-                    android:text="4"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:textColor="@color/black"/>
-            </LinearLayout>
+
             <TextView
                 android:id="@+id/hargaMulai"
-                android:layout_marginTop="14dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Harga paket mulai dari Rp35.000.000\nDp mulai dari Rp5.000.000"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="14dp"
                 android:layout_marginRight="10dp"
                 android:fontFamily="@font/poppinsmedium"
-                android:textSize="13dp"
-                android:textColor="@color/black"/>
+                android:text="Harga paket mulai dari Rp35.000.000\nDp mulai dari Rp5.000.000"
+                android:textColor="@color/black"
+                android:textSize="13dp" />
+
             <TextView
                 android:id="@+id/termasukHarga"
-                android:layout_marginTop="14dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/poppinsmedium"
                 android:text="Harga sudah termasuk :\n
  • Tiket Pesawat Ekonomi PP\n
  • Manasik Umroh\n
@@ -321,26 +218,24 @@
  • Trasportasi BUS di Saudi Full AC\n
  • Perlengkapan (Seragam, ID Card, Kain Ihrom dan Sabuk,\n
  • Koper dan Tas"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:fontFamily="@font/poppinsmedium"
-                android:textSize="13dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="13dp" />
+
             <TextView
                 android:id="@+id/tidaktermasukHarga"
-                android:layout_marginTop="14dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/poppinsmedium"
                 android:text="Harga Tidak Termasuk :\n
  • Pengeluaran Pribadi Jamaah\n
  • Paspor dan Kartu Kuning\n
  • Upgrade Tiket Bussiness Class\n
  • Force Majure"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:fontFamily="@font/poppinsmedium"
-                android:textSize="13dp"
-                android:textColor="#FF0000"/>
+                android:textColor="#FF0000"
+                android:textSize="13dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

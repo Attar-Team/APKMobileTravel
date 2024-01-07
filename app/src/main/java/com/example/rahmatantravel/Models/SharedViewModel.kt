@@ -15,6 +15,7 @@ class SharedViewModel : ViewModel() {
     private var selectedImagePaspor1: Uri? = null
     private var selectedImagePaspor2: Uri? = null
     private var selectedImageBuktiPembayaran: Uri? = null
+    private var fotoProfile: Uri? = null
 
     fun getSelectedImageUri(): Uri? {
         return selectedImageUri
@@ -86,6 +87,15 @@ class SharedViewModel : ViewModel() {
 
     fun setSelectedImageBuktiPembayaran(uri: Uri?) {
         selectedImageBuktiPembayaran = uri
+    }
+
+    fun getProfileImageUri(): Uri? {
+        return fotoProfile
+    }
+
+    fun setProfileImageUri(uri: Uri?) {
+        fotoProfile = uri
+        Log.d("SharedViewModel", "setProfileImageUri: $uri")
     }
 
 }

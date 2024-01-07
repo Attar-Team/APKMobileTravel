@@ -105,6 +105,7 @@
                                 android:textSize="18sp"/>
                         </LinearLayout>
                         <TextView
+                            android:id="@+id/salin"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Salin"
@@ -129,11 +130,11 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:layout_weight="1"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Riwayat Komisi >"
-                android:fontFamily="@font/poppinsmedium"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Riwayat Komisi >"-->
+<!--                android:fontFamily="@font/poppinsmedium"/>-->
         </LinearLayout>
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -162,13 +163,15 @@
                     android:textSize="17sp"
                     android:textColor="@color/black"/>
                 <TextView
+                    android:id="@+id/komisi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1.500.000"
                     android:fontFamily="@font/poppinsmedium"
                     android:layout_gravity="center"
                     android:textSize="17sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:layout_marginStart="5dp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <LinearLayout
@@ -180,15 +183,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jamaah Undangan Saya"
+                android:text=" Undangan Saya"
                 android:fontFamily="@font/poppinssemibold"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:layout_weight="1"/>
             <TextView
+                android:id="@+id/cekTransaksi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cek Data Jamaah >"
+                android:text="Cek Transaksi >"
                 android:fontFamily="@font/poppinsmedium"/>
         </LinearLayout>
         <androidx.cardview.widget.CardView
@@ -209,6 +213,7 @@
                     android:layout_height="40dp"
                     android:src="@drawable/jamaah"/>
                 <TextView
+                    android:id="@+id/jumlahTransaksi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="4"
@@ -220,7 +225,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Jamaah"
+                    android:text="Transaksi"
                     android:fontFamily="@font/poppinsmedium"
                     android:layout_gravity="center"
                     android:textSize="17sp"

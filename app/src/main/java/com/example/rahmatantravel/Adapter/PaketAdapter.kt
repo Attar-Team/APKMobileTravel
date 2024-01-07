@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.rahmatantravel.Models.PaketModels
 import com.example.rahmatantravel.R
+import com.example.rahmatantravel.api.paketResponse.APIResponse
 import com.example.rahmatantravel.api.paketResponse.HotelResponse
 import com.example.rahmatantravel.api.paketResponse.KeberangkatanResponse
 import com.example.rahmatantravel.api.paketResponse.PaketResponse
@@ -17,9 +18,9 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class PaketAdapter(private val keberangkatanResponse: List<KeberangkatanResponse>,
-                   private val paketResponse: List<PaketResponse>,
-                   private val hotelResponse: List<HotelResponse>) : RecyclerView.Adapter<PaketAdapter.PaketViewHolder>() {
+class PaketAdapter(private var keberangkatanResponse: List<KeberangkatanResponse>,
+                   private var paketResponse: List<PaketResponse>,
+                   private var hotelResponse: List<HotelResponse>) : RecyclerView.Adapter<PaketAdapter.PaketViewHolder>() {
 
     var onItemClick : ((KeberangkatanResponse, PaketResponse, HotelResponse) -> Unit)? = null
 
@@ -41,6 +42,25 @@ class PaketAdapter(private val keberangkatanResponse: List<KeberangkatanResponse
 
     override fun getItemCount(): Int {
         return minOf(keberangkatanResponse.size, paketResponse.size, hotelResponse.size)
+    }
+
+    fun setFilteredList(keberangkatanResponse: List<KeberangkatanResponse>, paketResponse: List<PaketResponse>, hotelResponse: List<HotelResponse>) {
+        this.keberangkatanResponse = keberangkatanResponse
+        this.paketResponse = paketResponse
+        this.hotelResponse = hotelResponse
+        notifyDataSetChanged()
+    }
+
+    fun getKeberangkatanResponse(): List<KeberangkatanResponse> {
+        return keberangkatanResponse
+    }
+
+    fun getPaketResponse(): List<PaketResponse> {
+        return paketResponse
+    }
+
+    fun getHotelResponse(): List<HotelResponse> {
+        return hotelResponse
     }
 
     inner class PaketViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -78,7 +98,6 @@ class PaketAdapter(private val keberangkatanResponse: List<KeberangkatanResponse
             val format = NumberFormat.getCurrencyInstance(Locale("id", "ID")) // Locale untuk Indonesia
             return format.format(number)
         }
-
     }
 }
 

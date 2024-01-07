@@ -102,9 +102,11 @@ class LoginActivityRevisi2 : AppCompatActivity() {
                         dialog.dismiss()
 
                         response.body()?.token?.let {
-                            prefManager.saveLoginData(response.body()?.userID,
-                                it
-                            )
+                            response.body() ?.level?.let { it1 ->
+                                prefManager.saveLoginData(response.body()?.userId,
+                                    it, it1
+                                )
+                            }
                         }
                         prefManager.setUserName(response.body()!!.nama)
 

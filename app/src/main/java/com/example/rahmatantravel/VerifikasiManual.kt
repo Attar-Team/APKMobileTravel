@@ -43,6 +43,7 @@ class VerifikasiManual : AppCompatActivity(), UploadRequestBody.UploadCallback {
     private lateinit var  Nominal : EditText
     private lateinit var  CatatanPembayaran : EditText
     private lateinit var  tanggalPembayaran: TextView
+    private lateinit var jumlahBayar : EditText
     private lateinit var  uploadImage: TextView
     private lateinit var  buktiPembayaran: ImageView
     private lateinit var sharedViewModel: SharedViewModel
@@ -58,6 +59,7 @@ class VerifikasiManual : AppCompatActivity(), UploadRequestBody.UploadCallback {
         CatatanPembayaran = findViewById(R.id.edt_catatan)
         buktiPembayaran = findViewById(R.id.fotoBukti)
         uploadImage = findViewById(R.id.uploadFoto)
+        jumlahBayar = findViewById(R.id.edt_jumlahBayar)
 
         uploadImage.setOnClickListener {
             imagePicker()
@@ -68,6 +70,14 @@ class VerifikasiManual : AppCompatActivity(), UploadRequestBody.UploadCallback {
         val fotobukti = sharedViewModel.getSelectedImageBuktiPembayaran()
         buktiPembayaran.setImageURI(fotobukti)
 
+        val keberangkatanID = intent.getStringExtra("Keberangkatan_ID")
+        logData("Keberangkatan ID", keberangkatanID.toString())
+
+        val AgenID = intent.getStringExtra("AgenID")
+        logData("Agen ID", AgenID.toString())
+
+        val CatatanPemesanan = intent.getStringExtra("CatatanPemesanan")
+        logData("CatatanPemesanan", CatatanPemesanan.toString())
 
         val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
         val date = dateFormat.format(Calendar.getInstance().time)
@@ -132,13 +142,13 @@ class VerifikasiManual : AppCompatActivity(), UploadRequestBody.UploadCallback {
                 }
             }
 
-            data["agen_id"] = RequestBody.create("text/plain".toMediaTypeOrNull(), "0")
-            data["keberangkatan_id"] = RequestBody.create("text/plain".toMediaTypeOrNull(), "6")
-            data["catatan_pemesanan"] = RequestBody.create("text/plain".toMediaTypeOrNull(), "noted")
+            data["agen_id"] = RequestBody.create("text/plain".toMediaTypeOrNull(), AgenID.toString())
+            data["keberangkatan_id"] = RequestBody.create("text/plain".toMediaTypeOrNull(), keberangkatanID.toString())
+            data["catatan_pemesanan"] = RequestBody.create("text/plain".toMediaTypeOrNull(), CatatanPemesanan.toString())
             data["jenis_pembayaran"] = RequestBody.create("text/plain".toMediaTypeOrNull(), "transfer")
             data["status"] = RequestBody.create("text/plain".toMediaTypeOrNull(), "belum lunas")
             data["total_tagihan"] = RequestBody.create("text/plain".toMediaTypeOrNull(), (total ?: 0).toString())
-            data["jumlah_bayar"] = RequestBody.create("text/plain".toMediaTypeOrNull(), (1000000).toString())
+            data["jumlah_bayar"] = RequestBody.create("text/plain".toMediaTypeOrNull(), jumlahBayar.text.toString())
             data["catatan"] = RequestBody.create("text/plain".toMediaTypeOrNull(), CatatanPembayaran.text.toString())
 
             logData("Foto Bukti", fotobukti.toString())
@@ -175,16 +185,19 @@ class VerifikasiManual : AppCompatActivity(), UploadRequestBody.UploadCallback {
                             showDialogSuccess()
                         }else{
                             logData("Response body is null", response.message())
+                            dialog.dismiss()
                             showDialogFail()
                         }
                     }else{
                         logData("Response Failed", response.message())
+                        dialog.dismiss()
                         showDialogFail()
                     }
                 }
 
                 override fun onFailure(call: Call<PemesananPostResponse>, t: Throwable) {
                     logData("Response On Failure", t.message.toString())
+                    dialog.dismiss()
                     showDialogFail()
                 }
 
@@ -229,6 +242,7 @@ class VerifikasiManual : AppCompatActivity(), UploadRequestBody.UploadCallback {
         button.setOnClickListener { dialog.dismiss() }
 
         dialog.show()
+
     }
 
 

@@ -28,24 +28,7 @@
             android:textColor="@color/black"
             android:textSize="18sp" />
     </RelativeLayout>
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginRight="20dp"
-        app:cardBackgroundColor="@color/red"
-        android:layout_marginVertical="5dp"
-        app:cardCornerRadius="5dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="23:59"
-            android:fontFamily="@font/poppinsmedium"
-            android:textColor="@color/white"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="5dp"
-            android:textSize="13sp"/>
-    </androidx.cardview.widget.CardView>
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -110,6 +93,17 @@
                 android:text="Rp31.000.000"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/edt_jumlahBayar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:fontFamily="@font/poppinsmedium"
+                android:hint="jumlah bayar"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
             <EditText
                 android:id="@+id/edt_catatan"
                 android:layout_width="match_parent"

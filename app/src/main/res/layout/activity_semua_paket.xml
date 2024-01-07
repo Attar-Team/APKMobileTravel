@@ -33,7 +33,7 @@
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="45dp"
         android:layout_margin="8dp"
         app:flow_horizontalBias="0.5"
         android:background="@drawable/search_view_bg"

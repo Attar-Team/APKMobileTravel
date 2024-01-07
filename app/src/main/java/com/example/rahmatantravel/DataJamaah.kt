@@ -22,6 +22,7 @@ class DataJamaah : AppCompatActivity() {
 
     private lateinit var tambahData: ImageView
     private lateinit var recyclerView : RecyclerView
+    private lateinit var buttonBack : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +31,13 @@ class DataJamaah : AppCompatActivity() {
         // Inisasi Konten View
         tambahData = findViewById(R.id.tambahData)
         recyclerView = findViewById(R.id.recycleDataJamaah)
+        buttonBack = findViewById(R.id.backToMenuLainnya)
+
+        buttonBack.setOnClickListener {
+            val intent = Intent(this@DataJamaah, MainActivity::class.java)
+            intent.putExtra("selectedItemId", R.id.akun)
+            startActivity(intent)
+        }
 
         tambahData.setOnClickListener {
             val intent = Intent(this@DataJamaah, Dokumen::class.java)  // Pindah intent menuju Dokumen.java
@@ -79,6 +87,13 @@ class DataJamaah : AppCompatActivity() {
         } else {
             logData("User ID", "User ID not found")
         }
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this@DataJamaah, MainActivity::class.java)
+        intent.putExtra("selectedItemId", R.id.akun)
+        startActivity(intent)
+        super.onBackPressed()
     }
 
     private fun logData(tag: String, data: String) {

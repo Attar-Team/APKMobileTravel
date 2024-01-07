@@ -16,6 +16,7 @@ import okhttp3.RequestBody
 import java.text.NumberFormat
 import java.util.Locale
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
 
 
 class Pembayaran : AppCompatActivity() {
@@ -25,6 +26,7 @@ class Pembayaran : AppCompatActivity() {
     private lateinit var backToMenuLainnya: ImageView
     private lateinit var radioGroupBank : RadioGroup
     private lateinit var sharedViewModel: SharedViewModel
+    var keberangkatanID : String = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +35,8 @@ class Pembayaran : AppCompatActivity() {
 
         var selectedValue: String = ""
         sharedViewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
+
+        keberangkatanID = intent.getStringExtra("keberangkatanID") ?: ""
 
         totalHarga = findViewById(R.id.hargaPaket)
         btnSelanjutnya = findViewById(R.id.btn_selanjutnya)
@@ -85,38 +89,26 @@ class Pembayaran : AppCompatActivity() {
         }
         logData("MAP ID Harga", mapIDHarga.toString())
 
-        val data = LinkedHashMap<String, RequestBody>()
 
-        for ((key, value) in mapNIK!!) {
-            data["customer[$key]"] = RequestBody.create("text/plain".toMediaTypeOrNull(), value)
-        }
-
-        for ((key, value) in mapIDHarga!!) {
-            data["harga[$key]"] = RequestBody.create("text/plain".toMediaTypeOrNull(), value.toString())
-        }
-
-        data["agen_id"] = RequestBody.create("text/plain".toMediaTypeOrNull(), "0")
-        data["keberangkatan_id"] = RequestBody.create("text/plain".toMediaTypeOrNull(), "6")
-        data["catatan_pemesanan"] = RequestBody.create("text/plain".toMediaTypeOrNull(), "noted kak")
-        data["jenis_pembayaran"] = RequestBody.create("text/plain".toMediaTypeOrNull(), "transfer")
-        data["status"] = RequestBody.create("text/plain".toMediaTypeOrNull(), "belum lunas")
-        data["total_tagihan"] = RequestBody.create("text/plain".toMediaTypeOrNull(), (total ?: 0).toString())
-
-        val kodereferal = intent.getStringExtra("KodeReferal")
+        val AgenID = intent.getStringExtra("AgenID")
         val catatanPemesanan = intent.getStringExtra("CatatanPemesanan")
-        logData("Kode Referal", kodereferal.toString())
+        logData("Agen ID", AgenID.toString())
         logData("Catatan Pemesanan", catatanPemesanan.toString())
 
 
         btnSelanjutnya.setOnClickListener {
 
-            logData("data", data.toString())
+            keberangkatanID = intent.getStringExtra("Keberangkatan_ID") ?: ""
+            logData("Keberngkatan ID", keberangkatanID)
 
             val intent = Intent(this@Pembayaran, VerifikasiManual::class.java)
             intent.putExtra("totalHarga", total)
             intent.putExtra("NIK", ArrayNIK)
             intent.putExtra("IDHarga", ArrayHargaID)
             intent.putExtra("Bank", selectedValue)
+            intent.putExtra("AgenID", AgenID)
+            intent.putExtra("CatatanPemesanan", catatanPemesanan)
+            intent.putExtra("Keberangkatan_ID", keberangkatanID)
             startActivity(intent)
         }
 
