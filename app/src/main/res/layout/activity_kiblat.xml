@@ -47,7 +47,7 @@
         <TextView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="Pastikan anda menghadap Ka'bah"
+            android:text="Pastikan GPS sudah hidup"
             android:textAlignment="center"
             android:fontFamily="@font/poppinssemibold"
             android:textColor="@color/black"

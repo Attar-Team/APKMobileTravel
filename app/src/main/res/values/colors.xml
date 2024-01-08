@@ -27,6 +27,13 @@
     <color name="orangeTua">#CE1212</color>
     <color name="putihsusu">#EEEBDD</color>
     <color name="cream">#FF9D00</color>
+    <color name="colorDarkBlue">#0C1233</color>
+    <color name="transparant">#00000000</color>
+    <color name="colorGreen50">#80CCF6C8</color>
+    <color name="colorGreen">#7FCD91</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGrey">#AAAAAA</color>
+    <color name="colorGrey50">#80AAAAAA</color>
 
 
 </resources>

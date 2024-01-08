@@ -20,8 +20,7 @@ class KiblatActivity : AppCompatActivity() {
 
         buttonLanjut.setOnClickListener {
 
-            val geoUri = "https://maps.app.goo.gl/ezRvpGWGfEvpGbbZA"
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(geoUri))
+            val intent = Intent(this, KiblatActivity2::class.java)
             startActivity(intent)
         }
 

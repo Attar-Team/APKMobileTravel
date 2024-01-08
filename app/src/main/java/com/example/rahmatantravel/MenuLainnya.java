@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.rahmatantravel.activity.QuranActivity;
+
 public class MenuLainnya extends AppCompatActivity {
 
     private CardView SmenuUmroh, SmenuHaji, SmenuTour, SmenuDoa, SmenuKiblat, SmenuQuran, SmenuGallery, SmenuArtikel, SmenuTentang;

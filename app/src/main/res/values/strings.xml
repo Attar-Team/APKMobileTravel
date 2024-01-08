@@ -12,4 +12,9 @@
     <string name="asyam">Asyam</string>
     <string name="subjudul">Travel Umroh dan Haji</string>
     <string name="idsignin">68410965576-iqb39p2a2trhi20ibcun1f2dd5f4du9s.apps.googleusercontent.com</string>
+    <string name="settings_button_ok">OK</string>
+    <string name="settings_button_cancel">Cancel</string>
+    <string name="text_daftar_surah">Daftar Surah</string>
+    <string name="msg_wait">Mohon tunggu...</string>
+    <string name="alquran">Al Quran</string>
 </resources>

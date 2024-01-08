@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RahmatanTravel"
         tools:targetApi="31">
+        <activity
+            android:name=".KiblatActivity2"
+            android:exported="false" />
         <activity
             android:name=".PusatAgen"
             android:exported="false" />
@@ -27,8 +33,7 @@
             android:exported="false" />
         <activity
             android:name=".Dompet"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".VerifikasiManual"
             android:exported="false" />
@@ -100,7 +105,7 @@
             android:name=".KiblatActivity"
             android:exported="false" />
         <activity
-            android:name=".QuranActivity"
+            android:name=".activity.QuranActivity"
             android:exported="false" />
         <activity
             android:name=".GalleryActivity"
